@@ -1,0 +1,7 @@
+{
+  "enabledPlugins": {
+    "spec-kit@claude-night-market": true,
+    "leyline@claude-night-market": true,
+    "abstract@claude-night-market": true
+  }
+}

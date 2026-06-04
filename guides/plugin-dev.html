@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>插件开发指南 — Claude Code 使用说明书</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+  .part-section {
+    border-top: 2px solid var(--border);
+    padding-top: 32px; margin-top: 32px;
+  }
+  .part-section:first-of-type { border-top: none; }
+  .part-header {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 16px;
+  }
+  .part-num {
+    width: 38px; height: 38px; border-radius: 50%;
+    background: linear-gradient(135deg, #d97706, #f97316);
+    color: #fff; display: flex; align-items: center;
+    justify-content: center; font-weight: 800; font-size: 1.1rem;
+  }
+  .part-header h2 { margin-bottom: 0; }
+  .compare-table td:first-child { white-space: normal !important; font-weight: 600 !important; color: var(--text) !important; }
+  .field-table td:first-child { font-size: .8rem !important; }
+</style>
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="logo">
+      <span class="icon">🦾</span> Claude Code
+    </a>
+    <div class="version">使用说明书 · v1.0</div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-section">📖 导航</div>
+    <a href="../index.html">🏠 首页</a>
+    <a href="quick-start.html">🚀 5分钟入门</a>
+    <a href="../manuals/skills-manual.html">📋 技能命令速查</a>
+    <a href="workflow-guide.html">🔧 工作流实战</a>
+    <a href="#" class="active">🧩 插件开发指南</a>
+  </nav>
+  <div class="sidebar-footer">
+    <a href="../index.html" style="color:#a8a29e;text-decoration:none;">🏠 返回首页</a><br>
+    📖 基于 Claude Code v2.1.x
+  </div>
+</aside>
+
+<main class="main">
+
+  <nav class="breadcrumb">
+    <a href="../index.html">🏠 首页</a> <span class="sep">›</span>
+    <span>🧩 插件开发指南</span>
+  </nav>
+
+  <div class="hero">
+    <h1>🧩 插件开发指南</h1>
+    <p class="subtitle">从零开始创建自定义 Skill、Hook、Command，打包发布为 Plugin</p>
+  </div>
+
+  <!-- ===== Part 1: Skill ===== -->
+  <section class="part-section">
+    <div class="part-header">
+      <span class="part-num">1</span>
+      <h2>自定义技能 (Skill)</h2>
+    </div>
+    <p class="section-desc">Skill 是 Claude Code 最核心的扩展单元。一个 Markdown 文件 + YAML 元数据 = 一个专业技能。</p>
+
+    <!-- Hello World -->
+    <h3 style="font-size:1rem;margin-bottom:12px;">🎯 Hello World：创建你的第一个技能</h3>
+
+    <div class="step-list">
+      <div class="step-card">
+        <div class="step-num-lg">1</div>
+        <div class="step-body">
+          <h4>创建目录和文件</h4>
+          <div class="code-block">
+<span style="color:#a8a29e;"># 在项目根目录下</span>
+<span style="color:#10b981;">mkdir -p</span> .claude/skills/hello
+<span style="color:#10b981;">touch</span> .claude/skills/hello/SKILL.md
+          </div>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-num-lg">2</div>
+        <div class="step-body">
+          <h4>编写 SKILL.md</h4>
+          <div class="code-block">
+<span style="color:#57534e;">---</span>
+<span style="color:#06b6d4;">name:</span> <span style="color:#10b981;">hello</span>
+<span style="color:#06b6d4;">description:</span> <span style="color:#10b981;">向用户问好，并显示当前项目信息</span>
+<span style="color:#06b6d4;">allowed-tools:</span>
+  <span style="color:#06b6d4;">-</span> <span style="color:#10b981;">Bash</span>
+  <span style="color:#06b6d4;">-</span> <span style="color:#10b981;">Read</span>
+<span style="color:#57534e;">---</span>
+
+<span style="color:#f59e0b;"># Hello 技能</span>
+
+<span style="color:#d6d3d1;">当用户说「打个招呼」或调用 /hello 时，执行以下操作：
+
+1. 读取 package.json（如果有的话）
+2. 运行 `whoami` 获取当前用户
+3. 输出: "你好 {用户名}！欢迎来到 {项目名}。"</span>
+          </div>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-num-lg">3</div>
+        <div class="step-body">
+          <h4>加载并使用</h4>
+          <div class="code-block">
+<span style="color:#a8a29e;"># 重新扫描技能目录</span>
+/reload-skills
+
+<span style="color:#a8a29e;"># 试试触发你的技能</span>
+/hello
+          </div>
+          <p style="font-size:.8rem;color:var(--text-muted);margin-top:8px;">
+            ✅ 完成！Claude 检测到 /hello 后会加载 SKILL.md 中的指令并执行。
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SKILL.md fields -->
+    <h3 style="font-size:1rem;margin-top:24px;margin-bottom:8px;">📋 SKILL.md 元数据字段速查</h3>
+    <div class="cmd-table-wrap">
+      <table class="field-table">
+        <thead><tr><th>字段</th><th>类型</th><th>说明</th></tr></thead>
+        <tbody>
+          <tr><td><code>name</code></td><td>string</td><td>kebab-case 名称，最长 64 字符。定义了 <code>/name</code> 斜杠命令</td></tr>
+          <tr><td><code>description</code></td><td>string</td><td>第三人称描述，最长 200 字符。Claude 用来自动匹配和触发技能</td></tr>
+          <tr><td><code>argument-hint</code></td><td>string</td><td>斜杠菜单中的参数提示，如 <code>[feature-name]</code></td></tr>
+          <tr><td><code>disable-model-invocation</code></td><td>boolean</td><td>true = 只能手动 /name 调用，Claude 不自动触发</td></tr>
+          <tr><td><code>user-invocable</code></td><td>boolean</td><td>false = 隐藏在 / 菜单中（只能模型调用）</td></tr>
+          <tr><td><code>allowed-tools</code></td><td>string[]</td><td>无需权限弹窗即可使用的工具列表</td></tr>
+          <tr><td><code>disallowed-tools</code></td><td>string[]</td><td>显式禁止使用的工具列表</td></tr>
+          <tr><td><code>model</code></td><td>string</td><td>可选模型覆盖：<code>sonnet</code> / <code>opus</code> / <code>haiku</code></td></tr>
+          <tr><td><code>context</code></td><td>string</td><td><code>fork</code> = 在隔离子代理上下文中运行</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="info-box tip">
+      <strong>💡 渐进式加载策略：</strong>会话启动只加载 name + description（~100 tokens）。触发技能时才加载完整 SKILL.md。references/ 目录下的文件仅在需要时加载。保持 description 精准以优化自动匹配。
+    </div>
+  </section>
+
+  <!-- ===== Part 2: Hook ===== -->
+  <section class="part-section">
+    <div class="part-header">
+      <span class="part-num">2</span>
+      <h2>自定义 Hook</h2>
+    </div>
+    <p class="section-desc">Hook 在特定事件前后自动执行脚本——相当于 Claude Code 的「自动化触发器」。</p>
+
+    <h3 style="font-size:1rem;margin-bottom:8px;">📡 常用 Hook 事件类型</h3>
+    <div class="cmd-table-wrap">
+      <table>
+        <thead><tr><th>事件</th><th>触发时机</th><th>典型用途</th></tr></thead>
+        <tbody>
+          <tr><td><code>PreToolUse</code></td><td>工具调用之前</td><td>审批敏感操作、记录审计日志</td></tr>
+          <tr><td><code>PostToolUse</code></td><td>工具调用成功后</td><td>自动格式化、运行测试</td></tr>
+          <tr><td><code>PostToolUseFailure</code></td><td>工具调用失败后</td><td>错误通知、自动重试</td></tr>
+          <tr><td><code>UserPromptSubmit</code></td><td>用户提交消息时</td><td>注入上下文、规则检查</td></tr>
+          <tr><td><code>SessionStart</code></td><td>会话启动时</td><td>环境检查、项目初始化</td></tr>
+          <tr><td><code>SessionEnd</code></td><td>会话结束时</td><td>清理临时文件、上传日志</td></tr>
+          <tr><td><code>PreCompact</code></td><td>上下文压缩前</td><td>保存关键信息</td></tr>
+          <tr><td><code>Notification</code></td><td>后台任务完成时</td><td>桌面通知</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="font-size:1rem;margin:24px 0 12px;">🔧 实战 A：提交前自动运行测试</h3>
+    <div class="info-box">
+      <strong>配置位置：</strong><code>.claude/settings.json</code> → <code>hooks</code>
+    </div>
+    <div class="code-block">
+<span style="color:#a8a29e;">// .claude/settings.json</span>
+{
+  <span style="color:#06b6d4;">"hooks"</span>: {
+    <span style="color:#06b6d4;">"PreToolUse"</span>: [
+      {
+        <span style="color:#06b6d4;">"matcher"</span>: <span style="color:#10b981;">"Bash(git commit*)"</span>,
+        <span style="color:#06b6d4;">"hooks"</span>: [
+          {
+            <span style="color:#06b6d4;">"type"</span>: <span style="color:#10b981;">"command"</span>,
+            <span style="color:#06b6d4;">"command"</span>: <span style="color:#10b981;">"pytest --quiet && echo 'Tests passed'"</span>
+          }
+        ]
+      }
+    ]
+  }
+}
+    </div>
+    <p style="font-size:.8rem;color:var(--text-muted);margin-top:4px;">
+      <strong>效果：</strong>每次 <code>git commit</code> 前自动运行 pytest。测试不通过则阻止提交。
+    </p>
+
+    <h3 style="font-size:1rem;margin:24px 0 12px;">🔧 实战 B：编辑后自动格式化</h3>
+    <div class="code-block">
+{
+  <span style="color:#06b6d4;">"hooks"</span>: {
+    <span style="color:#06b6d4;">"PostToolUse"</span>: [
+      {
+        <span style="color:#06b6d4;">"matcher"</span>: <span style="color:#10b981;">"Edit"</span>,
+        <span style="color:#06b6d4;">"hooks"</span>: [
+          {
+            <span style="color:#06b6d4;">"type"</span>: <span style="color:#10b981;">"command"</span>,
+            <span style="color:#06b6d4;">"command"</span>: <span style="color:#10b981;">"prettier --write ${CLAUDE_TOOL_INPUT.file_path} 2>/dev/null || true"</span>
+          }
+        ]
+      }
+    ]
+  }
+}
+    </div>
+    <p style="font-size:.8rem;color:var(--text-muted);margin-top:4px;">
+      <strong>效果：</strong>每次 Claude 编辑文件后，自动用 Prettier 格式化。用 <code>|| true</code> 确保格式化失败不阻断流程。
+    </p>
+  </section>
+
+  <!-- ===== Part 3: Command ===== -->
+  <section class="part-section">
+    <div class="part-header">
+      <span class="part-num">3</span>
+      <h2>自定义命令 (Command)</h2>
+    </div>
+    <p class="section-desc">旧版扩展方式——与 Skill 类似但更简单。适合快速创建一个斜杠命令。</p>
+
+    <h3 style="font-size:1rem;margin-bottom:8px;">Command vs Skill 对比</h3>
+    <div class="cmd-table-wrap">
+      <table class="compare-table">
+        <thead><tr><th>维度</th><th>Command</th><th>Skill</th></tr></thead>
+        <tbody>
+          <tr><td>文件位置</td><td><code>.claude/commands/&lt;name&gt;.md</code></td><td><code>.claude/skills/&lt;name&gt;/SKILL.md</code></td></tr>
+          <tr><td>元数据</td><td>无 YAML 前置</td><td>有 YAML 前置（9 个字段）</td></tr>
+          <tr><td>自动触发</td><td>只能手动 /name</td><td>Claude 可自动匹配触发</td></tr>
+          <tr><td>优先级</td><td>低于同名 Skill</td><td>高于同名 Command</td></tr>
+          <tr><td>推荐场景</td><td>快捷脚本、团队内部命令</td><td>复杂工作流、可分享的专业技能</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="margin-top:12px;font-size:.84rem;color:var(--text-muted);">
+      📌 <strong>建议：</strong>新项目优先使用 Skill。Command 主要用于兼容旧版或极简场景。
+    </p>
+  </section>
+
+  <!-- ===== Part 4: Plugin ===== -->
+  <section class="part-section">
+    <div class="part-header">
+      <span class="part-num">4</span>
+      <h2>打包发布 Plugin</h2>
+    </div>
+    <p class="section-desc">将多个 Skill + Hook + Command 打包为一个 Plugin，通过 GitHub 分享给团队或社区。</p>
+
+    <h3 style="font-size:1rem;margin-bottom:12px;">📁 Plugin 目录结构</h3>
+    <div class="arch-diagram">
+      <pre style="background:var(--code-bg);color:var(--code-text);padding:20px;border-radius:8px;font-size:.82rem;line-height:1.8;">
+<span style="color:#f59e0b;">my-plugin/</span>
+├── <span style="color:#10b981;">.claude-plugin/</span>
+│   └── <span style="color:#10b981;">marketplace.json</span>   <span style="color:#57534e;">← 插件清单（必需）</span>
+├── <span style="color:#8b5cf6;">skills/</span>
+│   ├── my-skill/
+│   │   └── <span style="color:#10b981;">SKILL.md</span>
+│   └── another-skill/
+│       └── <span style="color:#10b981;">SKILL.md</span>
+├── <span style="color:#06b6d4;">commands/</span>
+│   └── deploy.md
+├── <span style="color:#ec4899;">hooks/</span>
+│   └── pre-commit.json
+├── <span style="color:#f97316;">agents/</span>
+│   └── reviewer.md
+└── <span style="color:#10b981;">README.md</span></pre>
+    </div>
+
+    <h3 style="font-size:1rem;margin:24px 0 12px;">📝 marketplace.json 示例</h3>
+    <div class="code-block">
+{
+  <span style="color:#06b6d4;">"name"</span>: <span style="color:#10b981;">"my-awesome-plugin"</span>,
+  <span style="color:#06b6d4;">"description"</span>: <span style="color:#10b981;">"My custom dev tools"</span>,
+  <span style="color:#06b6d4;">"version"</span>: <span style="color:#10b981;">"1.0.0"</span>,
+  <span style="color:#06b6d4;">"plugins"</span>: [
+    {
+      <span style="color:#06b6d4;">"name"</span>: <span style="color:#10b981;">"my-awesome-plugin"</span>,
+      <span style="color:#06b6d4;">"description"</span>: <span style="color:#10b981;">"A collection of productivity tools"</span>,
+      <span style="color:#06b6d4;">"source"</span>: <span style="color:#10b981;">"./plugins/my-awesome-plugin"</span>,
+      <span style="color:#06b6d4;">"version"</span>: <span style="color:#10b981;">"1.0.0"</span>
+    }
+  ]
+}
+    </div>
+
+    <h3 style="font-size:1rem;margin:24px 0 12px;">🚀 发布流程</h3>
+    <div class="flow-steps">
+      <div class="flow-step"><span class="step-num">1</span> 创建仓库</div>
+      <div class="flow-connector"></div>
+      <div class="flow-step"><span class="step-num">2</span> Push GitHub</div>
+      <div class="flow-connector"></div>
+      <div class="flow-step"><span class="step-num">3</span> 团队安装</div>
+    </div>
+    <div class="code-block" style="margin-top:12px;">
+<span style="color:#a8a29e;"># 团队成员安装你的插件</span>
+claude plugin marketplace add <span style="color:#10b981;">your-username/my-awesome-plugin</span>
+claude plugin install <span style="color:#10b981;">my-awesome-plugin@my-awesome-plugin</span>
+    </div>
+
+    <div class="info-box" style="margin-top:20px;">
+      <strong>🌐 社区市场：</strong>想让更多人使用？发布到 <a href="https://github.com/Chat2AnyLLM/awesome-claude-plugins" style="color:#b45309;">Awesome Claude Plugins</a> 聚合目录，或注册到 <code>claude-night-market</code>。
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <h3>🧩 准备好创建你的第一个插件了吗？</h3>
+    <p>从 Hello World Skill 开始，10 分钟就能上手。</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+      <a href="../manuals/skills-manual.html" class="hero-btn primary">📋 查阅 SKILL.md 详解</a>
+      <a href="workflow-guide.html" class="hero-btn secondary">🔧 跟着工作流实战</a>
+    </div>
+  </div>
+
+  <footer class="page-footer">
+    <p>🦾 Claude Code 使用说明书 · 插件开发指南</p>
+  </footer>
+
+</main>
+
+<button class="back-top" title="回到顶部">↑</button>
+<script src="../assets/app.js"></script>
+</body>
+</html>

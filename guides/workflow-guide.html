@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>工作流实战 — Claude Code 使用说明书</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+  .workflow-section {
+    border-left: 4px solid #d97706;
+    padding-left: 20px; margin: 32px 0 40px;
+  }
+  .workflow-section.wf2 { border-left-color: #8b5cf6; }
+  .workflow-section.wf3 { border-left-color: #10b981; }
+  .wf-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 4px; }
+  .wf-scene { font-size: .85rem; color: var(--text-muted); margin-bottom: 16px; }
+  .wf-step-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 12px; margin: 16px 0;
+  }
+  .wf-step {
+    background: var(--card-bg); border-radius: var(--radius);
+    padding: 18px 20px; box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    position: relative;
+  }
+  .wf-step .wf-phase {
+    position: absolute; top: -10px; right: 12px;
+    font-size: .68rem; padding: 2px 10px; border-radius: 10px;
+    font-weight: 700; color: #fff;
+  }
+  .phase-brainstorm { background: #f59e0b; }
+  .phase-specify    { background: #8b5cf6; }
+  .phase-plan       { background: #06b6d4; }
+  .phase-execute    { background: #10b981; }
+  .phase-review     { background: #ef4444; }
+  .phase-simplify   { background: #ec4899; }
+  .phase-verify     { background: #f97316; }
+  .phase-commit     { background: #57534e; }
+
+  .wf-step .ws-icon { font-size: 1.5rem; margin-bottom: 6px; }
+  .wf-step .ws-title { font-weight: 700; font-size: .9rem; margin-bottom: 4px; }
+  .wf-step .ws-cmd {
+    font-family: "SF Mono","Fira Code",monospace;
+    font-size: .78rem; background: #fef3c7; color: #b45309;
+    padding: 2px 6px; border-radius: 4px; display: inline-block;
+    margin: 6px 0;
+  }
+  .wf-step .ws-out {
+    font-size: .76rem; color: var(--text-muted);
+    margin-top: 4px; line-height: 1.4;
+  }
+  .practice-box {
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+    border-radius: var(--radius); padding: 20px 24px;
+    margin-top: 24px;
+  }
+  .practice-box h4 { font-size: .95rem; margin-bottom: 6px; }
+  .practice-box p { font-size: .82rem; color: var(--text-muted); }
+</style>
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="logo">
+      <span class="icon">🦾</span> Claude Code
+    </a>
+    <div class="version">使用说明书 · v1.0</div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-section">📖 导航</div>
+    <a href="../index.html">🏠 首页</a>
+    <a href="quick-start.html">🚀 5分钟入门</a>
+    <a href="../manuals/skills-manual.html">📋 技能命令速查</a>
+    <a href="#" class="active">🔧 工作流实战</a>
+    <a href="plugin-dev.html">🧩 插件开发指南</a>
+  </nav>
+  <div class="sidebar-footer">
+    <a href="../index.html" style="color:#a8a29e;text-decoration:none;">🏠 返回首页</a><br>
+    📖 基于 Claude Code v2.1.x
+  </div>
+</aside>
+
+<main class="main">
+
+  <nav class="breadcrumb">
+    <a href="../index.html">🏠 首页</a> <span class="sep">›</span>
+    <span>🔧 工作流实战</span>
+  </nav>
+
+  <div class="hero">
+    <h1>🔧 工作流实战指南</h1>
+    <p class="subtitle">3 个完整的端到端开发工作流 — 从创意到代码，从代码到质量</p>
+  </div>
+
+  <!-- ===== Workflow 1: Attune ===== -->
+  <div class="workflow-section">
+    <div class="wf-title">🔵 工作流 1：Attune 全周期开发</div>
+    <div class="wf-scene">🎯 场景：从零构建一个「CLI 待办事项工具」</div>
+
+    <div class="flow-steps">
+      <div class="flow-step"><span class="step-num">1</span> 💡 头脑风暴</div>
+      <div class="flow-connector"></div>
+      <div class="flow-step"><span class="step-num">2</span> 📋 规范</div>
+      <div class="flow-connector"></div>
+      <div class="flow-step"><span class="step-num">3</span> 🏗️ 计划</div>
+      <div class="flow-connector"></div>
+      <div class="flow-step"><span class="step-num">4</span> ⚡ 执行</div>
+    </div>
+
+    <div class="wf-step-cards">
+      <div class="wf-step">
+        <span class="wf-phase phase-brainstorm">阶段 1</span>
+        <div class="ws-icon">💡</div>
+        <div class="ws-title">头脑风暴</div>
+        <div class="ws-cmd">/attune:brainstorm</div>
+        <div class="ws-out">
+          <strong>输入：</strong>"做一个终端 Todo 工具，支持添加/完成/列表"<br>
+          <strong>产出：</strong>docs/project-brief.md — 问题定义、方案对比、取舍分析
+        </div>
+      </div>
+      <div class="wf-step">
+        <span class="wf-phase phase-specify">阶段 2</span>
+        <div class="ws-icon">📋</div>
+        <div class="ws-title">编写规范</div>
+        <div class="ws-cmd">/attune:specify</div>
+        <div class="ws-out">
+          <strong>自动读取：</strong>project-brief.md<br>
+          <strong>产出：</strong>docs/specification.md — 功能需求 + 验收标准
+        </div>
+      </div>
+      <div class="wf-step">
+        <span class="wf-phase phase-plan">阶段 3</span>
+        <div class="ws-icon">🏗️</div>
+        <div class="ws-title">实施计划</div>
+        <div class="ws-cmd">/attune:blueprint</div>
+        <div class="ws-out">
+          <strong>产出：</strong>docs/implementation-plan.md — 架构设计 + 依赖排序任务
+        </div>
+      </div>
+      <div class="wf-step">
+        <span class="wf-phase phase-execute">阶段 4</span>
+        <div class="ws-icon">⚡</div>
+        <div class="ws-title">执行实施</div>
+        <div class="ws-cmd">/attune:execute</div>
+        <div class="ws-out">
+          <strong>行为：</strong>逐个执行任务、追踪进度、质量门禁<br>
+          <strong>产出：</strong>完整可运行的 todo.py + 测试
+        </div>
+      </div>
+    </div>
+
+    <div class="info-box tip">
+      <strong>💡 捷径：</strong>不想分步操作？直接 <code>/attune:mission</code> 一键走完全流程，自动检测当前阶段、支持断点恢复。
+    </div>
+  </div>
+
+  <!-- ===== Workflow 2: Spec-Kit ===== -->
+  <div class="workflow-section wf2">
+    <div class="wf-title">🟣 工作流 2：Spec-Kit 规范驱动开发</div>
+    <div class="wf-scene">🎯 场景：为已有项目添加「JWT 用户认证」功能</div>
+
+    <div class="flow-steps">
+      <div class="flow-step"><span class="step-num">1</span> 📝 写规范</div>
+      <div class="flow-connector"></div>
+      <div class="flow-step"><span class="step-num">2</span> 📐 做计划</div>
+      <div class="flow-connector"></div>
+      <div class="flow-step"><span class="step-num">3</span> 📋 拆任务</div>
+      <div class="flow-connector"></div>
+      <div class="flow-step"><span class="step-num">4</span> 🔨 执行</div>
+    </div>
+
+    <div class="wf-step-cards">
+      <div class="wf-step">
+        <span class="wf-phase phase-specify">阶段 1</span>
+        <div class="ws-icon">📝</div>
+        <div class="ws-title">创建功能规范</div>
+        <div class="ws-cmd">/speckit-specify</div>
+        <div class="ws-out">
+          <strong>输入：</strong>"实现 JWT 认证，支持 access + refresh token"<br>
+          <strong>产出：</strong>spec.md — 用户故事 + 验收标准 + 边界条件
+        </div>
+      </div>
+      <div class="wf-step">
+        <span class="wf-phase phase-plan">阶段 2</span>
+        <div class="ws-icon">📐</div>
+        <div class="ws-title">生成设计文档</div>
+        <div class="ws-cmd">/speckit-plan</div>
+        <div class="ws-out">
+          <strong>产出：</strong>plan.md — 架构设计、数据流、组件接口
+        </div>
+      </div>
+      <div class="wf-step">
+        <span class="wf-phase phase-execute">阶段 3</span>
+        <div class="ws-icon">📋</div>
+        <div class="ws-title">拆分任务</div>
+        <div class="ws-cmd">/speckit-tasks</div>
+        <div class="ws-out">
+          <strong>产出：</strong>tasks.md — 依赖排序的 15-20 个实施任务
+        </div>
+      </div>
+      <div class="wf-step">
+        <span class="wf-phase phase-commit">阶段 4</span>
+        <div class="ws-icon">🔨</div>
+        <div class="ws-title">逐任务执行</div>
+        <div class="ws-cmd">/speckit-implement</div>
+        <div class="ws-out">
+          <strong>行为：</strong>按 tasks.md 顺序逐个实现<br>
+          <strong>产出：</strong>JWT 中间件 + Token 刷新 + 测试
+        </div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <strong>🔗 辅助命令：</strong><code>/speckit-clarify</code> 解决规范模糊点 · <code>/speckit-analyze</code> 跨文档一致性检查 · <code>/speckit-taskstoissues</code> 任务→GitHub Issues
+    </div>
+  </div>
+
+  <!-- ===== Workflow 3: Daily Dev ===== -->
+  <div class="workflow-section wf3">
+    <div class="wf-title">🟢 工作流 3：日常开发质量循环</div>
+    <div class="wf-scene">🎯 场景：开发一个功能 → 审查 → 清理 → 验证 → 提交</div>
+
+    <div class="flow-steps">
+      <div class="flow-step"><span class="step-num">1</span> ✏️ 编码</div>
+      <div class="flow-connector"></div>
+      <div class="flow-step"><span class="step-num">2</span> 🔍 审查</div>
+      <div class="flow-connector"></div>
+      <div class="flow-step"><span class="step-num">3</span> ✨ 简化</div>
+      <div class="flow-connector"></div>
+      <div class="flow-step"><span class="step-num">4</span> ✅ 验证</div>
+      <div class="flow-connector"></div>
+      <div class="flow-step"><span class="step-num">5</span> 📦 提交</div>
+    </div>
+
+    <div class="wf-step-cards">
+      <div class="wf-step">
+        <span class="wf-phase phase-brainstorm">步骤 1</span>
+        <div class="ws-icon">✏️</div>
+        <div class="ws-title">编写功能代码</div>
+        <div class="ws-cmd" style="font-size:.75rem;">自然语言描述需求</div>
+        <div class="ws-out">"在 user.py 中添加 email 验证函数，检查格式是否正确"</div>
+      </div>
+      <div class="wf-step">
+        <span class="wf-phase phase-review">步骤 2</span>
+        <div class="ws-icon">🔍</div>
+        <div class="ws-title">代码审查</div>
+        <div class="ws-cmd">/code-review high</div>
+        <div class="ws-out">检查：正确性 Bug · 逻辑错误 · 安全问题 · 边界条件</div>
+      </div>
+      <div class="wf-step">
+        <span class="wf-phase phase-simplify">步骤 3</span>
+        <div class="ws-icon">✨</div>
+        <div class="ws-title">代码简化</div>
+        <div class="ws-cmd">/simplify</div>
+        <div class="ws-out">清理：重复代码 · 低效写法 · 命名规范 · 结构优化</div>
+      </div>
+      <div class="wf-step">
+        <span class="wf-phase phase-verify">步骤 4</span>
+        <div class="ws-icon">✅</div>
+        <div class="ws-title">验证变更</div>
+        <div class="ws-cmd">/verify</div>
+        <div class="ws-out">运行应用，确认功能按预期工作，无回归问题</div>
+      </div>
+      <div class="wf-step">
+        <span class="wf-phase phase-commit">步骤 5</span>
+        <div class="ws-icon">📦</div>
+        <div class="ws-title">提交代码</div>
+        <div class="ws-cmd" style="font-size:.75rem;">git commit</div>
+        <div class="ws-out">用 <code>/diff</code> 确认改动，然后提交到版本库</div>
+      </div>
+    </div>
+
+    <div class="info-box warn">
+      <strong>⚠️ 关键区别：</strong><code>/code-review</code> 只查 Bug（正确性问题），<code>/simplify</code> 只做清理（代码质量）。两者互补，建议搭配使用。
+    </div>
+  </div>
+
+  <!-- Practice -->
+  <section>
+    <h2><span class="emoji">🏋️</span> 动手试试</h2>
+    <p class="section-desc">选择最适合你的工作流，在真实项目中练手。</p>
+
+    <div class="cards">
+      <div class="practice-box">
+        <h4>🆕 新手推荐：工作流 3</h4>
+        <p>选一个已有项目，写一个小功能 → <code>/code-review</code> → <code>/simplify</code> → <code>/verify</code>。熟悉最基本的开发循环。</p>
+      </div>
+      <div class="practice-box">
+        <h4>🛠️ 进阶推荐：工作流 2</h4>
+        <p>在已有项目上用 <code>/speckit-specify</code> 为一个新功能写规范，体验规范驱动开发的威力。</p>
+      </div>
+      <div class="practice-box">
+        <h4>🚀 专家推荐：工作流 1</h4>
+        <p>从零开始一个 Side Project，用 <code>/attune:mission</code> 一键走完全流程。</p>
+      </div>
+    </div>
+
+    <div class="info-box" style="margin-top:20px;">
+      <strong>📦 依赖提醒：</strong>工作流 1 需安装 <code>attune@claude-night-market</code>；工作流 2 需安装 <code>spec-kit@claude-night-market</code>。没有装过？参考 <a href="plugin-dev.html" style="color:#b45309;">插件开发指南</a> 或直接运行安装命令。
+    </div>
+  </section>
+
+  <footer class="page-footer">
+    <p>🦾 Claude Code 使用说明书 · 工作流实战指南</p>
+  </footer>
+
+</main>
+
+<button class="back-top" title="回到顶部">↑</button>
+<script src="../assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claude Code 使用说明书</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  .hero h1 { font-size: 2.8rem; }
+  .nav-card {
+    display: flex; flex-direction: column; align-items: center;
+    text-align: center; padding: 32px 20px;
+    text-decoration: none; color: var(--text);
+    transition: all .25s;
+  }
+  .nav-card:hover { transform: translateY(-4px); }
+  .nav-card .nc-icon { font-size: 3rem; margin-bottom: 12px; }
+  .nav-card .nc-title { font-size: 1.15rem; font-weight: 700; margin-bottom: 6px; }
+  .nav-card .nc-desc { font-size: .82rem; color: var(--text-muted); line-height: 1.5; }
+  .nav-card .nc-badge {
+    margin-top: 10px; font-size: .7rem; padding: 2px 10px;
+    border-radius: 12px; font-weight: 600;
+  }
+  .badge-start { background: #d1fae5; color: #065f46; }
+  .badge-ref   { background: #fef3c7; color: #92400e; }
+  .badge-guide { background: #dbeafe; color: #1e40af; }
+  .badge-dev   { background: #ede9fe; color: #5b21b6; }
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px; margin: 24px 0;
+  }
+  .feature-item {
+    display: flex; align-items: flex-start; gap: 12px;
+    background: var(--card-bg); border-radius: var(--radius);
+    padding: 18px 20px; box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+  }
+  .feature-item .fi-icon { font-size: 1.5rem; }
+  .feature-item .fi-text h4 { font-size: .88rem; margin-bottom: 2px; }
+  .feature-item .fi-text p { font-size: .78rem; color: var(--text-muted); }
+</style>
+</head>
+<body>
+
+<!-- ==================== SIDEBAR ==================== -->
+<aside class="sidebar">
+  <div class="sidebar-header">
+    <a href="index.html" class="logo">
+      <span class="icon">🦾</span> Claude Code
+    </a>
+    <div class="version">使用说明书 · v1.0</div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-section">📖 导航</div>
+    <a href="#" class="active">🏠 首页</a>
+    <a href="guides/quick-start.html">🚀 5分钟入门</a>
+    <a href="manuals/skills-manual.html">📋 技能命令速查</a>
+    <a href="guides/workflow-guide.html">🔧 工作流实战</a>
+    <a href="guides/plugin-dev.html">🧩 插件开发指南</a>
+    <div class="nav-section">📚 关于</div>
+    <a href="#features">✨ 特色亮点</a>
+    <a href="#structure">📂 文档结构</a>
+  </nav>
+  <div class="sidebar-footer">
+    📖 基于 Claude Code v2.1.x<br>
+    更新于 2026年6月
+  </div>
+</aside>
+
+<!-- ==================== MAIN ==================== -->
+<main class="main">
+
+  <!-- Hero -->
+  <div class="hero">
+    <h1>🦾 Claude Code 使用说明书</h1>
+    <p class="subtitle">为中文开发者准备的完全指南 — 从入门到精通，从速查到开发</p>
+    <div class="hero-cta">
+      <a href="guides/quick-start.html" class="hero-btn primary">🚀 5 分钟快速入门</a>
+      <a href="manuals/skills-manual.html" class="hero-btn secondary">📋 浏览技能手册</a>
+    </div>
+  </div>
+
+  <!-- Navigation Cards -->
+  <section>
+    <div class="cards" style="margin-top:20px;">
+      <a href="guides/quick-start.html" class="card nav-card">
+        <span class="nc-icon">🚀</span>
+        <span class="nc-title">5 分钟快速入门</span>
+        <span class="nc-desc">从安装到首次对话，一步一图带你上手 Claude Code</span>
+        <span class="nc-badge badge-start">🆕 新手必读</span>
+      </a>
+      <a href="manuals/skills-manual.html" class="card nav-card">
+        <span class="nc-icon">📋</span>
+        <span class="nc-title">技能命令速查</span>
+        <span class="nc-desc">50+ 命令 · 10+ 技能 · 完整表格 · 一键搜索</span>
+        <span class="nc-badge badge-ref">🔍 日常速查</span>
+      </a>
+      <a href="guides/workflow-guide.html" class="card nav-card">
+        <span class="nc-icon">🔧</span>
+        <span class="nc-title">工作流实战</span>
+        <span class="nc-desc">Attune 全周期 · Spec-Kit 规范驱动 · 日常开发循环</span>
+        <span class="nc-badge badge-guide">🛠️ 实战教程</span>
+      </a>
+      <a href="guides/plugin-dev.html" class="card nav-card">
+        <span class="nc-icon">🧩</span>
+        <span class="nc-title">插件开发指南</span>
+        <span class="nc-desc">自定义 Skill · Hook · Command · Plugin 从零到发布</span>
+        <span class="nc-badge badge-dev">🚀 进阶开发</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" style="margin-top:48px;">
+    <h2><span class="emoji">✨</span> 特色亮点</h2>
+    <p class="section-desc">这套说明书不只是文档——它是一份精心设计的学习体验。</p>
+
+    <div class="feature-grid">
+      <div class="feature-item">
+        <span class="fi-icon">🎯</span>
+        <div class="fi-text">
+          <h4>渐进式阅读路径</h4>
+          <p>新手 → 日常 → 进阶，每条路径都清晰指引下一步</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <span class="fi-icon">🔍</span>
+        <div class="fi-text">
+          <h4>即时搜索过滤</h4>
+          <p>50+ 命令 3 秒内定位，分类标签一键筛选</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <span class="fi-icon">🎨</span>
+        <div class="fi-text">
+          <h4>精美视觉设计</h4>
+          <p>卡片、流程图、时间线、进度条——信息可视化呈现</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <span class="fi-icon">📱</span>
+        <div class="fi-text">
+          <h4>响应式 + 零依赖</h4>
+          <p>手机到 4K 屏幕完美适配，纯静态文件，双击即用</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <span class="fi-icon">📋</span>
+        <div class="fi-text">
+          <h4>可复制代码块</h4>
+          <p>每个代码示例都带一键复制按钮，粘贴即运行</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <span class="fi-icon">🔄</span>
+        <div class="fi-text">
+          <h4>跟随版本更新</h4>
+          <p>基于 Claude Code v2.1.x，标注版本号，持续迭代</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Structure -->
+  <section id="structure" style="margin-top:48px;">
+    <h2><span class="emoji">📂</span> 文档结构</h2>
+    <p class="section-desc">4 份手册覆盖从入门到专家的完整学习旅程。</p>
+
+    <div class="arch-diagram">
+      <div class="arch-row">
+        <div class="arch-box primary">🏠 门户首页</div>
+      </div>
+      <div class="arch-row" style="margin-top:8px;">
+        <div class="arch-arrow">↓</div>
+      </div>
+      <div class="arch-row">
+        <div class="arch-box green">🚀 快速入门</div>
+        <div class="arch-arrow">→</div>
+        <div class="arch-box primary">📋 技能速查</div>
+        <div class="arch-arrow">→</div>
+        <div class="arch-box green">🔧 工作流实战</div>
+      </div>
+      <div class="arch-row" style="margin-top:8px;">
+        <div class="arch-arrow">↓</div>
+      </div>
+      <div class="arch-row">
+        <div class="arch-box accent">🧩 插件开发指南</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reading Path -->
+  <section class="reading-path" style="margin-top:48px;">
+    <h2><span class="emoji">🗺️</span> 推荐阅读路径</h2>
+    <p class="section-desc" style="margin-bottom:20px;">根据你的水平，选择最适合的起点。</p>
+
+    <div class="path-cards">
+      <div class="path-card">
+        <div class="path-icon">🆕</div>
+        <div class="path-level">路径 1</div>
+        <div class="path-title">新手入门</div>
+        <div class="path-desc">快速入门 → 技能速查<br>了解核心概念和常用命令</div>
+      </div>
+      <div class="path-card">
+        <div class="path-icon">🛠️</div>
+        <div class="path-level">路径 2</div>
+        <div class="path-title">日常开发</div>
+        <div class="path-desc">工作流实战 → 技能速查<br>掌握 attune/spec-kit 开发流程</div>
+      </div>
+      <div class="path-card">
+        <div class="path-icon">🚀</div>
+        <div class="path-level">路径 3</div>
+        <div class="path-title">进阶专家</div>
+        <div class="path-desc">插件开发 → 工作流实战<br>自定义技能和插件，扩展能力</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="page-footer">
+    <p>🦾 Claude Code 使用说明书 · 基于 Claude Code v2.1.x</p>
+    <p style="margin-top:4px;">
+      <a href="https://code.claude.com/docs">官方文档</a>
+      · <a href="https://agentskills.io">Agent Skills 规范</a>
+      · <a href="https://github.com/anthropics/skills">官方技能仓库</a>
+    </p>
+  </footer>
+
+</main>
+
+<button class="back-top" title="回到顶部">↑</button>
+<script src="assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>5分钟快速入门 — Claude Code 使用说明书</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+  .install-tabs { display: flex; gap: 8px; margin-bottom: 0; }
+  .install-tab {
+    padding: 8px 16px; border: 1px solid var(--border);
+    border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+    background: #f5f5f4; cursor: pointer; font-size: .82rem;
+    border-bottom: none; font-family: inherit;
+  }
+  .install-tab.active { background: var(--code-bg); color: #f59e0b; font-weight: 600; }
+  .install-pane { display: none; }
+  .install-pane.active { display: block; }
+  .concept-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px; margin: 20px 0;
+  }
+  .concept-card {
+    text-align: center; padding: 28px 20px;
+    background: var(--card-bg); border-radius: var(--radius);
+    box-shadow: var(--shadow); border: 1px solid var(--border);
+  }
+  .concept-card .cc-icon { font-size: 2.6rem; margin-bottom: 10px; }
+  .concept-card h4 { font-size: .95rem; margin-bottom: 4px; }
+  .concept-card p { font-size: .8rem; color: var(--text-muted); line-height: 1.5; }
+</style>
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="logo">
+      <span class="icon">🦾</span> Claude Code
+    </a>
+    <div class="version">使用说明书 · v1.0</div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-section">📖 导航</div>
+    <a href="../index.html">🏠 首页</a>
+    <a href="#" class="active">🚀 5分钟入门</a>
+    <a href="../manuals/skills-manual.html">📋 技能命令速查</a>
+    <a href="workflow-guide.html">🔧 工作流实战</a>
+    <a href="plugin-dev.html">🧩 插件开发指南</a>
+  </nav>
+  <div class="sidebar-footer">
+    <a href="../index.html" style="color:#a8a29e;text-decoration:none;">🏠 返回首页</a><br>
+    📖 基于 Claude Code v2.1.x
+  </div>
+</aside>
+
+<main class="main">
+
+  <nav class="breadcrumb">
+    <a href="../index.html">🏠 首页</a> <span class="sep">›</span>
+    <span>🚀 5分钟快速入门</span>
+  </nav>
+
+  <div class="hero">
+    <h1>🚀 5 分钟快速入门</h1>
+    <p class="subtitle">从零到第一次有效对话 — 一步步带你上手 Claude Code</p>
+  </div>
+
+  <!-- Step 1: 安装 -->
+  <section>
+    <div class="step-list">
+      <div class="step-card">
+        <div class="step-num-lg">1</div>
+        <div class="step-body">
+          <h3>安装 Claude Code</h3>
+          <span class="step-time">⏱ 约 2 分钟</span>
+          <p style="margin-top:8px;">选择你的操作系统，在终端中运行对应命令。</p>
+
+          <div class="install-tabs" style="margin-top:16px;">
+            <button class="install-tab active" onclick="switchTab('mac')">🍎 macOS</button>
+            <button class="install-tab" onclick="switchTab('linux')">🐧 Linux</button>
+            <button class="install-tab" onclick="switchTab('npm')">📦 npm 通用</button>
+          </div>
+
+          <div class="code-block install-pane active" id="pane-mac">
+<span style="color:#a8a29e;"># macOS — 使用 Homebrew</span>
+brew install claude-code
+claude login
+          </div>
+          <div class="code-block install-pane" id="pane-linux">
+<span style="color:#a8a29e;"># Linux — 使用 npm</span>
+npm install -g @anthropic-ai/claude-code
+claude login
+          </div>
+          <div class="code-block install-pane" id="pane-npm">
+<span style="color:#a8a29e;"># 任何系统 — 使用 npm (需要 Node.js ≥ 18)</span>
+npm install -g @anthropic-ai/claude-code
+claude login
+          </div>
+
+          <p style="font-size:.82rem;color:var(--text-muted);margin-top:8px;">
+            <code>claude login</code> 会打开浏览器验证你的 Anthropic 账户。完成后回到终端。
+          </p>
+        </div>
+      </div>
+
+      <!-- Step 2: 首次对话 -->
+      <div class="step-card">
+        <div class="step-num-lg">2</div>
+        <div class="step-body">
+          <h3>第一次对话</h3>
+          <span class="step-time">⏱ 约 1 分钟</span>
+          <p style="margin-top:8px;">进入你的项目目录，启动 Claude，说出你的第一句话。</p>
+
+          <div class="code-block" style="margin-top:12px;">
+<span style="color:#a8a29e;"># 进入项目目录</span>
+<span style="color:#10b981;">cd</span> my-project
+
+<span style="color:#a8a29e;"># 启动 Claude Code</span>
+claude
+
+<span style="color:#a8a29e;"># 👇 你的第一句话（在 claude 提示符下输入）</span>
+<span style="color:#f59e0b;">帮我创建一个 Python 计算器，支持加减乘除</span>
+          </div>
+
+          <div class="info-box tip" style="margin-top:12px;">
+            <strong>💡 预期效果：</strong>Claude 会自动创建 <code>calculator.py</code> 文件，写入完整代码，并向你解释实现逻辑。你会看到它在使用 Read、Write、Bash 等工具。
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3: 核心概念 -->
+      <div class="step-card">
+        <div class="step-num-lg">3</div>
+        <div class="step-body">
+          <h3>理解三个核心概念</h3>
+          <span class="step-time">⏱ 约 1 分钟</span>
+
+          <div class="concept-cards" style="margin-top:12px;">
+            <div class="concept-card">
+              <div class="cc-icon">💬</div>
+              <h4>会话 Session</h4>
+              <p>每次 <code>claude</code> 启动就是一个会话。Claude 记住整个对话上下文，直到你 <code>/clear</code> 清空。</p>
+            </div>
+            <div class="concept-card">
+              <div class="cc-icon">🔧</div>
+              <h4>工具 Tools</h4>
+              <p>Claude 能读文件(Read)、写文件(Write)、运行命令(Bash)、搜索代码(Grep)。这些就是"工具"。</p>
+            </div>
+            <div class="concept-card">
+              <div class="cc-icon">🔐</div>
+              <h4>权限 Permissions</h4>
+              <p>Claude 执行某些操作前需要你同意。你可以选择 Allow（允许）、Deny（拒绝）、或 Always Allow（始终允许）。</p>
+            </div>
+          </div>
+
+          <div class="priority-bar" style="margin-top:8px;">
+            <span class="bar-label">🔐 权限级别</span>
+            <div class="bar-track">
+              <div class="bar-fill low" style="width:33%"></div>
+              <div class="bar-fill med" style="width:33%"></div>
+              <div class="bar-fill high" style="width:34%"></div>
+            </div>
+            <span style="font-size:.75rem;color:var(--text-muted);">Ask → Auto → Bypass</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 4: 5个常用命令 -->
+      <div class="step-card">
+        <div class="step-num-lg">4</div>
+        <div class="step-body">
+          <h3>记住这 5 个命令</h3>
+          <span class="step-time">⏱ 约 1 分钟</span>
+
+          <div class="cmd-table-wrap" style="margin-top:12px;">
+            <table>
+              <thead><tr><th>命令</th><th>用途</th><th>什么时候用</th></tr></thead>
+              <tbody>
+                <tr><td>/help</td><td>列出所有命令</td><td>忘了什么命令时</td></tr>
+                <tr><td>/clear</td><td>清空对话历史</td><td>话题切换、上下文满了</td></tr>
+                <tr><td>/model</td><td>切换 AI 模型</td><td>想用更快/更强的模型</td></tr>
+                <tr><td>/cost</td><td>查看 Token 消耗</td><td>想了解花费了多少</td></tr>
+                <tr><td>/diff</td><td>查看所有更改</td><td>提交前确认改动</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <h3>🎉 入门完成！接下来去哪？</h3>
+    <p>你已经掌握了 Claude Code 的基本用法。想要深入学习？</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+      <a href="../manuals/skills-manual.html" class="hero-btn primary">📋 浏览完整技能手册</a>
+      <a href="workflow-guide.html" class="hero-btn secondary">🔧 跟着工作流实战</a>
+    </div>
+  </div>
+
+  <footer class="page-footer">
+    <p>🦾 Claude Code 使用说明书 · 5分钟快速入门</p>
+  </footer>
+
+</main>
+
+<button class="back-top" title="回到顶部">↑</button>
+<script src="../assets/app.js"></script>
+<script>
+  // Install tab switcher
+  function switchTab(name) {
+    document.querySelectorAll('.install-tab').forEach(function(t){ t.classList.remove('active'); });
+    document.querySelectorAll('.install-pane').forEach(function(p){ p.classList.remove('active'); });
+    document.getElementById('pane-' + name).classList.add('active');
+    event.target.classList.add('active');
+    // Re-init copy buttons for newly visible code block
+    if (typeof initCodeCopy === 'function') initCodeCopy();
+  }
+</script>
+</body>
+</html>
