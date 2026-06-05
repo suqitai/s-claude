@@ -146,49 +146,49 @@
     <div class="cards">
       <div class="card" data-search="/help 帮助 列出所有可用命令，新用户的第一站。">
         <div class="card-icon">🆘</div>
-        <div class="card-name"><span class="slash">/help</span> 帮助</div>
+        <div class="card-name"><span class="slash cmd-clickable" data-cmd="help">/help</span> 帮助</div>
         <div class="card-desc">列出所有可用命令，新用户的第一站。</div>
         <div class="card-tags"><span class="tag tag-debug">诊断</span></div>
       </div>
       <div class="card">
         <div class="card-icon">🧹</div>
-        <div class="card-name"><span class="slash">/clear</span> 清空会话</div>
+        <div class="card-name"><span class="slash cmd-clickable" data-cmd="clear">/clear</span> 清空会话</div>
         <div class="card-desc">重置对话历史，释放上下文窗口。别名 <code>/reset</code>、<code>/new</code>。</div>
         <div class="card-tags"><span class="tag tag-session">会话</span></div>
       </div>
       <div class="card">
         <div class="card-icon">📦</div>
-        <div class="card-name"><span class="slash">/compact</span> 压缩上下文</div>
+        <div class="card-name"><span class="slash cmd-clickable" data-cmd="compact">/compact</span> 压缩上下文</div>
         <div class="card-desc">压缩对话历史，保留关键信息，延长会话寿命。</div>
         <div class="card-tags"><span class="tag tag-session">会话</span></div>
       </div>
       <div class="card">
         <div class="card-icon">🎯</div>
-        <div class="card-name"><span class="slash">/model</span> 切换模型</div>
+        <div class="card-name"><span class="slash cmd-clickable" data-cmd="model">/model</span> 切换模型</div>
         <div class="card-desc">在 sonnet / opus / haiku 之间切换。</div>
         <div class="card-tags"><span class="tag tag-config">配置</span></div>
       </div>
       <div class="card">
         <div class="card-icon">💰</div>
-        <div class="card-name"><span class="slash">/cost</span> 费用查询</div>
+        <div class="card-name"><span class="slash cmd-clickable" data-cmd="cost">/cost</span> 费用查询</div>
         <div class="card-desc">查看当前会话的 Token 消耗和费用估算。</div>
         <div class="card-tags"><span class="tag tag-debug">诊断</span></div>
       </div>
       <div class="card">
         <div class="card-icon">🔍</div>
-        <div class="card-name"><span class="slash">/doctor</span> 环境诊断</div>
+        <div class="card-name"><span class="slash cmd-clickable" data-cmd="doctor">/doctor</span> 环境诊断</div>
         <div class="card-desc">排查安装、配置、MCP 连接问题。</div>
         <div class="card-tags"><span class="tag tag-debug">诊断</span></div>
       </div>
       <div class="card">
         <div class="card-icon">📋</div>
-        <div class="card-name"><span class="slash">/todos</span> 任务列表</div>
+        <div class="card-name"><span class="slash cmd-clickable" data-cmd="todos">/todos</span> 任务列表</div>
         <div class="card-desc">查看当前会话的待办任务和进度。</div>
         <div class="card-tags"><span class="tag tag-project">项目</span></div>
       </div>
       <div class="card">
         <div class="card-icon">🔄</div>
-        <div class="card-name"><span class="slash">/diff</span> 差异查看</div>
+        <div class="card-name"><span class="slash cmd-clickable" data-cmd="diff">/diff</span> 差异查看</div>
         <div class="card-desc">打开交互式差异查看器，浏览所有待提交更改。</div>
         <div class="card-tags"><span class="tag tag-project">项目</span></div>
       </div>
@@ -205,37 +205,37 @@
         <thead><tr><th>命令</th><th>功能说明</th><th>别名</th></tr></thead>
         <tbody>
           <tr data-search="/clear 清空对话历史，释放上下文窗口">
-          <td>/clear</td>
+          <td><span class="cmd-clickable" data-cmd="clear">/clear</span></td>
           <td>清空对话历史，释放上下文窗口</td><td>/reset, /new</td></tr>
           <tr data-search="/compact [focus] 压缩对话历史，保留关键信息；可选 focus 指定保留重点">
-          <td>/compact [focus]</td>
+          <td><span class="cmd-clickable" data-cmd="compact">/compact</span> [focus]</td>
           <td>压缩对话历史，保留关键信息；可选 focus 指定保留重点</td><td>—</td></tr>
           <tr data-search="/resume [name|ID] 恢复之前的会话继续工作">
-          <td>/resume [name|ID]</td>
+          <td><span class="cmd-clickable" data-cmd="resume">/resume</span> [name|ID]</td>
           <td>恢复之前的会话继续工作</td><td>/continue</td></tr>
           <tr data-search="/rename [name] 重命名当前会话，方便后续查找">
-          <td>/rename [name]</td>
+          <td><span class="cmd-clickable" data-cmd="rename">/rename</span> [name]</td>
           <td>重命名当前会话，方便后续查找</td><td>—</td></tr>
           <tr data-search="/rewind 回滚对话和代码到上一个检查点">
-          <td>/rewind</td>
+          <td><span class="cmd-clickable" data-cmd="rewind">/rewind</span></td>
           <td>回滚对话和代码到上一个检查点</td><td>/checkpoint</td></tr>
           <tr data-search="/branch [name] 从当前状态创建一个对话分支">
-          <td>/branch [name]</td>
+          <td><span class="cmd-clickable" data-cmd="branch">/branch</span> [name]</td>
           <td>从当前状态创建一个对话分支</td><td>/fork</td></tr>
           <tr data-search="/diff 打开交互式差异查看器，显示所有待提交更改">
-          <td>/diff</td>
+          <td><span class="cmd-clickable" data-cmd="diff">/diff</span></td>
           <td>打开交互式差异查看器，显示所有待提交更改</td><td>—</td></tr>
           <tr data-search="/copy [N] 复制第 N 条最近回复或代码块到剪贴板">
-          <td>/copy [N]</td>
+          <td><span class="cmd-clickable" data-cmd="copy">/copy</span> [N]</td>
           <td>复制第 N 条最近回复或代码块到剪贴板</td><td>—</td></tr>
           <tr data-search="/export [filename] 导出当前对话到文本文件">
-          <td>/export [filename]</td>
+          <td><span class="cmd-clickable" data-cmd="export">/export</span> [filename]</td>
           <td>导出当前对话到文本文件</td><td>—</td></tr>
           <tr data-search="/exit 退出 Claude Code">
-          <td>/exit</td>
+          <td><span class="cmd-clickable" data-cmd="exit">/exit</span></td>
           <td>退出 Claude Code</td><td>/quit</td></tr>
           <tr data-search="/background 将当前会话移至后台运行">
-          <td>/background</td>
+          <td><span class="cmd-clickable" data-cmd="background">/background</span></td>
           <td>将当前会话移至后台运行</td><td>—</td></tr>
         </tbody>
       </table>
@@ -257,37 +257,37 @@
         <thead><tr><th>命令</th><th>功能说明</th><th>参数</th></tr></thead>
         <tbody>
           <tr data-search="/config 打开设置 UI（主题、模型、输出风格等）">
-          <td>/config</td>
+          <td><span class="cmd-clickable" data-cmd="config">/config</span></td>
           <td>打开设置 UI（主题、模型、输出风格等）</td><td>/settings</td></tr>
           <tr data-search="/model [name] 切换 AI 模型">
-          <td>/model [name]</td>
+          <td><span class="cmd-clickable" data-cmd="model">/model</span> [name]</td>
           <td>切换 AI 模型</td><td>sonnet / opus / haiku</td></tr>
           <tr data-search="/effort [level] 设置推理深度">
-          <td>/effort [level]</td>
+          <td><span class="cmd-clickable" data-cmd="effort">/effort</span> [level]</td>
           <td>设置推理深度</td><td>low / medium / high / xhigh / max</td></tr>
           <tr data-search="/fast [on|off] 切换快速模式（更快输出，同一模型）">
-          <td>/fast [on|off]</td>
+          <td><span class="cmd-clickable" data-cmd="fast">/fast</span> [on|off]</td>
           <td>切换快速模式（更快输出，同一模型）</td><td>on / off</td></tr>
           <tr data-search="/permissions 管理工具权限规则（allow / ask / deny）">
-          <td>/permissions</td>
+          <td><span class="cmd-clickable" data-cmd="permissions">/permissions</span></td>
           <td>管理工具权限规则（allow / ask / deny）</td><td>/allowed-tools</td></tr>
           <tr data-search="/theme 更改配色主题">
-          <td>/theme</td>
+          <td><span class="cmd-clickable" data-cmd="theme">/theme</span></td>
           <td>更改配色主题</td><td>—</td></tr>
           <tr data-search="/vim 切换 Vim 键位绑定模式">
-          <td>/vim</td>
+          <td><span class="cmd-clickable" data-cmd="vim">/vim</span></td>
           <td>切换 Vim 键位绑定模式</td><td>—</td></tr>
           <tr data-search="/terminal-setup 配置终端 Shell 集成">
-          <td>/terminal-setup</td>
+          <td><span class="cmd-clickable" data-cmd="terminal-setup">/terminal-setup</span></td>
           <td>配置终端 Shell 集成</td><td>—</td></tr>
           <tr data-search="/keybindings 自定义键盘快捷键">
-          <td>/keybindings</td>
+          <td><span class="cmd-clickable" data-cmd="keybindings">/keybindings</span></td>
           <td>自定义键盘快捷键</td><td>—</td></tr>
           <tr data-search="/hooks 查看和管理 Hook 配置">
-          <td>/hooks</td>
+          <td><span class="cmd-clickable" data-cmd="hooks">/hooks</span></td>
           <td>查看和管理 Hook 配置</td><td>—</td></tr>
           <tr data-search="/statusline 自定义状态栏显示内容">
-          <td>/statusline</td>
+          <td><span class="cmd-clickable" data-cmd="statusline">/statusline</span></td>
           <td>自定义状态栏显示内容</td><td>—</td></tr>
         </tbody>
       </table>
@@ -333,34 +333,34 @@
         <thead><tr><th>命令</th><th>功能说明</th><th>适用场景</th></tr></thead>
         <tbody>
           <tr data-search="/init 初始化项目 CLAUDE.md 记忆文件">
-          <td>/init</td>
+          <td><span class="cmd-clickable" data-cmd="init">/init</span></td>
           <td>初始化项目 CLAUDE.md 记忆文件</td><td>新项目接入</td></tr>
           <tr data-search="/memory 查看/编辑 CLAUDE.md 和自动记忆">
-          <td>/memory</td>
+          <td><span class="cmd-clickable" data-cmd="memory">/memory</span></td>
           <td>查看/编辑 CLAUDE.md 和自动记忆</td><td>更新项目知识</td></tr>
           <tr data-search="/add-dir &lt;path&gt; 添加额外目录到工作上下文">
-          <td>/add-dir &lt;path&gt;</td>
+          <td><span class="cmd-clickable" data-cmd="add-dir">/add-dir</span> &lt;path&gt;</td>
           <td>添加额外目录到工作上下文</td><td>多仓库项目</td></tr>
           <tr data-search="/todos 查看当前任务列表">
-          <td>/todos</td>
+          <td><span class="cmd-clickable" data-cmd="todos">/todos</span></td>
           <td>查看当前任务列表</td><td>进度跟踪</td></tr>
           <tr data-search="/plan [description] 进入计划模式（只读探索，确认后执行）">
-          <td>/plan [description]</td>
+          <td><span class="cmd-clickable" data-cmd="plan">/plan</span> [description]</td>
           <td>进入计划模式（只读探索，确认后执行）</td><td>复杂任务设计</td></tr>
           <tr data-search="/ultraplan &lt;prompt&gt; 深度多步骤任务规划">
-          <td>/ultraplan &lt;prompt&gt;</td>
+          <td><span class="cmd-clickable" data-cmd="ultraplan">/ultraplan</span> &lt;prompt&gt;</td>
           <td>深度多步骤任务规划</td><td>大型架构变更</td></tr>
           <tr data-search="/ultrareview 高级代码审查">
-          <td>/ultrareview</td>
+          <td><span class="cmd-clickable" data-cmd="ultrareview">/ultrareview</span></td>
           <td>高级代码审查</td><td>关键代码审阅</td></tr>
           <tr data-search="/bug 提交 Bug 报告（含会话日志）">
-          <td>/bug</td>
+          <td><span class="cmd-clickable" data-cmd="bug">/bug</span></td>
           <td>提交 Bug 报告（含会话日志）</td><td>问题反馈</td></tr>
           <tr data-search="/pr-comments [PR] 获取并处理 GitHub PR 评论">
-          <td>/pr-comments [PR]</td>
+          <td><span class="cmd-clickable" data-cmd="pr-comments">/pr-comments</span> [PR]</td>
           <td>获取并处理 GitHub PR 评论</td><td>PR 反馈响应</td></tr>
           <tr data-search="/autofix-pr [prompt] 持续监控 PR 并自动推送修复">
-          <td>/autofix-pr [prompt]</td>
+          <td><span class="cmd-clickable" data-cmd="autofix-pr">/autofix-pr</span> [prompt]</td>
           <td>持续监控 PR 并自动推送修复</td><td>自动化 PR 维护</td></tr>
         </tbody>
       </table>
@@ -394,40 +394,40 @@
         <thead><tr><th>命令</th><th>功能说明</th></tr></thead>
         <tbody>
           <tr data-search="/help 显示所有可用命令列表">
-          <td>/help</td>
+          <td><span class="cmd-clickable" data-cmd="help">/help</span></td>
           <td>显示所有可用命令列表</td></tr>
           <tr data-search="/status 查看版本、当前模型、账户信息">
-          <td>/status</td>
+          <td><span class="cmd-clickable" data-cmd="status">/status</span></td>
           <td>查看版本、当前模型、账户信息</td></tr>
           <tr data-search="/cost 查看当前会话 Token 消耗与费用">
-          <td>/cost</td>
+          <td><span class="cmd-clickable" data-cmd="cost">/cost</span></td>
           <td>查看当前会话 Token 消耗与费用</td></tr>
           <tr data-search="/context 可视化上下文窗口使用情况">
-          <td>/context</td>
+          <td><span class="cmd-clickable" data-cmd="context">/context</span></td>
           <td>可视化上下文窗口使用情况</td></tr>
           <tr data-search="/usage 显示套餐用量与速率限制">
-          <td>/usage</td>
+          <td><span class="cmd-clickable" data-cmd="usage">/usage</span></td>
           <td>显示套餐用量与速率限制</td></tr>
           <tr data-search="/insights 生成用量分析报告">
-          <td>/insights</td>
+          <td><span class="cmd-clickable" data-cmd="insights">/insights</span></td>
           <td>生成用量分析报告</td></tr>
           <tr data-search="/stats 可视化每日用量、会话历史">
-          <td>/stats</td>
+          <td><span class="cmd-clickable" data-cmd="stats">/stats</span></td>
           <td>可视化每日用量、会话历史</td></tr>
           <tr data-search="/doctor 诊断安装、配置、MCP 问题">
-          <td>/doctor</td>
+          <td><span class="cmd-clickable" data-cmd="doctor">/doctor</span></td>
           <td>诊断安装、配置、MCP 问题</td></tr>
           <tr data-search="/version 显示当前 Claude Code 版本号">
-          <td>/version</td>
+          <td><span class="cmd-clickable" data-cmd="version">/version</span></td>
           <td>显示当前 Claude Code 版本号</td></tr>
           <tr data-search="/release-notes 查看版本更新日志">
-          <td>/release-notes</td>
+          <td><span class="cmd-clickable" data-cmd="release-notes">/release-notes</span></td>
           <td>查看版本更新日志</td></tr>
           <tr data-search="/login 登录 Anthropic 账户">
-          <td>/login</td>
+          <td><span class="cmd-clickable" data-cmd="login">/login</span></td>
           <td>登录 Anthropic 账户</td></tr>
           <tr data-search="/logout 登出 Anthropic 账户">
-          <td>/logout</td>
+          <td><span class="cmd-clickable" data-cmd="logout">/logout</span></td>
           <td>登出 Anthropic 账户</td></tr>
         </tbody>
       </table>
@@ -449,31 +449,31 @@
         <thead><tr><th>命令</th><th>功能说明</th></tr></thead>
         <tbody>
           <tr data-search="/mcp 管理 MCP 服务器连接与 OAuth 认证">
-          <td>/mcp</td>
+          <td><span class="cmd-clickable" data-cmd="mcp">/mcp</span></td>
           <td>管理 MCP 服务器连接与 OAuth 认证</td></tr>
           <tr data-search="/plugin install &lt;name&gt; 安装插件">
-          <td>/plugin install &lt;name&gt;</td>
+          <td><span class="cmd-clickable" data-cmd="plugin">/plugin</span> install &lt;name&gt;</td>
           <td>安装插件</td></tr>
           <tr data-search="/plugin enable/disable &lt;name&gt; 启用/禁用插件">
-          <td>/plugin enable/disable &lt;name&gt;</td>
+          <td><span class="cmd-clickable" data-cmd="plugin">/plugin</span> enable/disable &lt;name&gt;</td>
           <td>启用/禁用插件</td></tr>
           <tr data-search="/plugin list 列出已安装插件">
-          <td>/plugin list</td>
+          <td><span class="cmd-clickable" data-cmd="plugin">/plugin</span> list</td>
           <td>列出已安装插件</td></tr>
           <tr data-search="/plugin marketplace 浏览插件市场">
-          <td>/plugin marketplace</td>
+          <td><span class="cmd-clickable" data-cmd="plugin">/plugin</span> marketplace</td>
           <td>浏览插件市场</td></tr>
           <tr data-search="/plugin validate 验证插件结构是否正确">
-          <td>/plugin validate</td>
+          <td><span class="cmd-clickable" data-cmd="plugin">/plugin</span> validate</td>
           <td>验证插件结构是否正确</td></tr>
           <tr data-search="/agents 管理自定义 Agent">
-          <td>/agents</td>
+          <td><span class="cmd-clickable" data-cmd="agents">/agents</span></td>
           <td>管理自定义 Agent</td></tr>
           <tr data-search="/skills 列出所有可用技能（内置 + 自定义）">
-          <td>/skills</td>
+          <td><span class="cmd-clickable" data-cmd="skills">/skills</span></td>
           <td>列出所有可用技能（内置 + 自定义）</td></tr>
           <tr data-search="/reload-skills 重新扫描技能目录，无需重启会话">
-          <td>/reload-skills</td>
+          <td><span class="cmd-clickable" data-cmd="reload-skills">/reload-skills</span></td>
           <td>重新扫描技能目录，无需重启会话</td></tr>
         </tbody>
       </table>
@@ -507,43 +507,43 @@
         <thead><tr><th>命令</th><th>功能说明</th><th>特点</th></tr></thead>
         <tbody>
           <tr data-search="/agent &lt;prompt&gt; 创建子代理执行独立任务，可并行运行">
-          <td>/agent &lt;prompt&gt;</td>
+          <td><span class="cmd-clickable" data-cmd="agent">/agent</span> &lt;prompt&gt;</td>
           <td>创建子代理执行独立任务，可并行运行</td><td>🔀 并行</td></tr>
           <tr data-search="/loop &lt;interval&gt; &lt;prompt&gt; 按间隔重复运行命令（本地）">
-          <td>/loop &lt;interval&gt; &lt;prompt&gt;</td>
+          <td><span class="cmd-clickable" data-cmd="loop">/loop</span> &lt;interval&gt; &lt;prompt&gt;</td>
           <td>按间隔重复运行命令（本地）</td><td>⏱ 最长 3 天</td></tr>
           <tr data-search="/schedule [description] 创建云端定时任务（关机也运行）">
-          <td>/schedule [description]</td>
+          <td><span class="cmd-clickable" data-cmd="schedule">/schedule</span> [description]</td>
           <td>创建云端定时任务（关机也运行）</td><td>☁️ 持久化</td></tr>
           <tr data-search="/tasks 查看所有后台任务状态">
-          <td>/tasks</td>
+          <td><span class="cmd-clickable" data-cmd="tasks">/tasks</span></td>
           <td>查看所有后台任务状态</td><td>📋 监控</td></tr>
           <tr data-search="/btw &lt;question&gt; 弹出临时只读代理快速提问">
-          <td>/btw &lt;question&gt;</td>
+          <td><span class="cmd-clickable" data-cmd="btw">/btw</span> &lt;question&gt;</td>
           <td>弹出临时只读代理快速提问</td><td>💬 不污染历史</td></tr>
           <tr data-search="/remote-control 允许从 claude.ai 远程控制此会话">
-          <td>/remote-control</td>
+          <td><span class="cmd-clickable" data-cmd="remote-control">/remote-control</span></td>
           <td>允许从 claude.ai 远程控制此会话</td><td>🌐 远程</td></tr>
           <tr data-search="/teleport 将 Web/iOS 会话拉到终端">
-          <td>/teleport</td>
+          <td><span class="cmd-clickable" data-cmd="teleport">/teleport</span></td>
           <td>将 Web/iOS 会话拉到终端</td><td>📲 跨设备</td></tr>
           <tr data-search="/desktop 将会话转移到 Claude Code 桌面应用">
-          <td>/desktop</td>
+          <td><span class="cmd-clickable" data-cmd="desktop">/desktop</span></td>
           <td>将会话转移到 Claude Code 桌面应用</td><td>🖥 桌面</td></tr>
           <tr data-search="/voice 启用语音输入（长按空格键说话）">
-          <td>/voice</td>
+          <td><span class="cmd-clickable" data-cmd="voice">/voice</span></td>
           <td>启用语音输入（长按空格键说话）</td><td>🎤 语音</td></tr>
           <tr data-search="/chrome 启用 Chrome 浏览器集成，进行网页自动化">
-          <td>/chrome</td>
+          <td><span class="cmd-clickable" data-cmd="chrome">/chrome</span></td>
           <td>启用 Chrome 浏览器集成，进行网页自动化</td><td>🌐 Web</td></tr>
           <tr data-search="/ide 自动连接到正在运行的 IDE">
-          <td>/ide</td>
+          <td><span class="cmd-clickable" data-cmd="ide">/ide</span></td>
           <td>自动连接到正在运行的 IDE</td><td>🔗 IDE</td></tr>
           <tr data-search="/setup-bedrock 配置 Amazon Bedrock 部署">
-          <td>/setup-bedrock</td>
+          <td><span class="cmd-clickable" data-cmd="setup-bedrock">/setup-bedrock</span></td>
           <td>配置 Amazon Bedrock 部署</td><td>☁️ AWS</td></tr>
           <tr data-search="/setup-vertex 配置 Google Vertex AI 部署">
-          <td>/setup-vertex</td>
+          <td><span class="cmd-clickable" data-cmd="setup-vertex">/setup-vertex</span></td>
           <td>配置 Google Vertex AI 部署</td><td>☁️ GCP</td></tr>
         </tbody>
       </table>
@@ -583,7 +583,7 @@
       <!-- batch -->
       <div class="card" data-search="/batch 批量迁移 大规模并行迁移工具。将工作拆分为 5-30 个隔离的 worktree 代理，并发执行。适合框架迁移（如 Solid → React）、大规模重构。">
         <div class="card-icon">🚀</div>
-        <div class="card-name"><span class="slash">/batch</span> 批量迁移</div>
+        <div class="card-name"><span class="slash cmd-clickable" data-cmd="batch">/batch</span> 批量迁移</div>
         <div class="card-desc">大规模并行迁移工具。将工作拆分为 5-30 个隔离的 worktree 代理，并发执行。适合框架迁移（如 Solid → React）、大规模重构。</div>
         <div class="card-tags">
           <span class="tag tag-auto">自动化</span>
@@ -594,7 +594,7 @@
       <!-- claude-api -->
       <div class="card">
         <div class="card-icon">🔧</div>
-        <div class="card-name"><span class="slash">/claude-api</span> API 开发助手</div>
+        <div class="card-name"><span class="slash cmd-clickable" data-cmd="claude-api">/claude-api</span> API 开发助手</div>
         <div class="card-desc">检测 <code>anthropic</code> SDK 导入时自动激活。支持模型迁移、Prompt 缓存优化、Managed Agents 入门。覆盖 Python/JS/TS。</div>
         <div class="card-tags">
           <span class="tag tag-skill">技能</span>
@@ -605,7 +605,7 @@
       <!-- debug -->
       <div class="card">
         <div class="card-icon">🐛</div>
-        <div class="card-name"><span class="slash">/debug</span> 会话调试</div>
+        <div class="card-name"><span class="slash cmd-clickable" data-cmd="debug">/debug</span> 会话调试</div>
         <div class="card-desc">读取会话调试日志，诊断工具调用失败和异常行为。适合排查 "为什么上次编辑失败了？" 这类问题。</div>
         <div class="card-tags">
           <span class="tag tag-debug">诊断</span>
@@ -616,7 +616,7 @@
       <!-- code-review -->
       <div class="card">
         <div class="card-icon">🔎</div>
-        <div class="card-name"><span class="slash">/code-review</span> 代码审查</div>
+        <div class="card-name"><span class="slash cmd-clickable" data-cmd="code-review">/code-review</span> 代码审查</div>
         <div class="card-desc">多维度代码审查：正确性 Bug、逻辑错误、安全问题。支持 4 级深度（low/medium/high/max）。可选 <code>--fix</code> 自动修复、<code>--comment</code> 发布 PR 评论。</div>
         <div class="card-tags">
           <span class="tag tag-skill">技能</span>
@@ -627,7 +627,7 @@
       <!-- simplify -->
       <div class="card">
         <div class="card-icon">✨</div>
-        <div class="card-name"><span class="slash">/simplify</span> 代码简化</div>
+        <div class="card-name"><span class="slash cmd-clickable" data-cmd="simplify">/simplify</span> 代码简化</div>
         <div class="card-desc">纯代码清理：复用、简化、效率优化、CLAUDE.md 合规。不查找 Bug（用 <code>/code-review</code> 查 Bug）。2026年5月从 code-review 中独立出来。</div>
         <div class="card-tags">
           <span class="tag tag-skill">技能</span>
@@ -638,7 +638,7 @@
       <!-- deep-research -->
       <div class="card">
         <div class="card-icon">🔬</div>
-        <div class="card-name"><span class="slash">/deep-research</span> 深度调研</div>
+        <div class="card-name"><span class="slash cmd-clickable" data-cmd="deep-research">/deep-research</span> 深度调研</div>
         <div class="card-desc">扇形展开网络搜索 → 获取来源 → 对抗性验证 → 综合引用报告。适合需要多来源、事实核查的调研任务。</div>
         <div class="card-tags">
           <span class="tag tag-skill">技能</span>
@@ -649,7 +649,7 @@
       <!-- update-config -->
       <div class="card">
         <div class="card-icon">⚙️</div>
-        <div class="card-name"><span class="slash">/update-config</span> 配置管理</div>
+        <div class="card-name"><span class="slash cmd-clickable" data-cmd="update-config">/update-config</span> 配置管理</div>
         <div class="card-desc">通过 <code>settings.json</code> 配置 Claude Code 行为。管理 Hooks、权限、环境变量。适合 "从此以后当 X 时做 Y" 这类自动化行为设置。</div>
         <div class="card-tags">
           <span class="tag tag-config">配置</span>
@@ -660,7 +660,7 @@
       <!-- keybindings-help -->
       <div class="card">
         <div class="card-icon">⌨️</div>
-        <div class="card-name"><span class="slash">/keybindings-help</span> 快捷键设置</div>
+        <div class="card-name"><span class="slash cmd-clickable" data-cmd="keybindings-help">/keybindings-help</span> 快捷键设置</div>
         <div class="card-desc">自定义键盘快捷键、和弦键绑定、修改 <code>~/.claude/keybindings.json</code>。</div>
         <div class="card-tags">
           <span class="tag tag-config">配置</span>
@@ -671,7 +671,7 @@
       <!-- verify -->
       <div class="card">
         <div class="card-icon">✅</div>
-        <div class="card-name"><span class="slash">/verify</span> 验证变更</div>
+        <div class="card-name"><span class="slash cmd-clickable" data-cmd="verify">/verify</span> 验证变更</div>
         <div class="card-desc">运行应用并观察行为，验证代码变更是否达到预期效果。适合确认 PR、修复、功能是否正常工作。</div>
         <div class="card-tags">
           <span class="tag tag-skill">技能</span>
@@ -682,7 +682,7 @@
       <!-- fewer-permission-prompts -->
       <div class="card">
         <div class="card-icon">🔓</div>
-        <div class="card-name"><span class="slash">/fewer-permission-prompts</span> 减少权限弹窗</div>
+        <div class="card-name"><span class="slash cmd-clickable" data-cmd="fewer-permission-prompts">/fewer-permission-prompts</span> 减少权限弹窗</div>
         <div class="card-desc">扫描对话记录中的常见只读工具调用，添加优先允许列表到项目 <code>.claude/settings.json</code>，减少权限提示。</div>
         <div class="card-tags">
           <span class="tag tag-config">配置</span>
@@ -693,7 +693,7 @@
       <!-- run -->
       <div class="card">
         <div class="card-icon">▶️</div>
-        <div class="card-name"><span class="slash">/run</span> 启动应用</div>
+        <div class="card-name"><span class="slash cmd-clickable" data-cmd="run">/run</span> 启动应用</div>
         <div class="card-desc">启动并驱动项目应用，查看变更效果。先寻找项目级技能中定义的启动方式，否则使用内置模式。</div>
         <div class="card-tags">
           <span class="tag tag-skill">技能</span>
@@ -704,7 +704,7 @@
       <!-- review -->
       <div class="card">
         <div class="card-icon">📝</div>
-        <div class="card-name"><span class="slash">/review</span> PR 审查</div>
+        <div class="card-name"><span class="slash cmd-clickable" data-cmd="review">/review</span> PR 审查</div>
         <div class="card-desc">审查 Pull Request——综合分析代码变更、测试覆盖和潜在问题。</div>
         <div class="card-tags">
           <span class="tag tag-skill">技能</span>
@@ -715,7 +715,7 @@
       <!-- security-review -->
       <div class="card">
         <div class="card-icon">🔐</div>
-        <div class="card-name"><span class="slash">/security-review</span> 安全审查</div>
+        <div class="card-name"><span class="slash cmd-clickable" data-cmd="security-review">/security-review</span> 安全审查</div>
         <div class="card-desc">对当前分支的待提交更改完成一次完整的安全审查。覆盖 OWASP Top 10、密钥泄露、注入风险等。</div>
         <div class="card-tags">
           <span class="tag tag-skill">技能</span>
@@ -726,7 +726,7 @@
       <!-- init -->
       <div class="card">
         <div class="card-icon">🌟</div>
-        <div class="card-name"><span class="slash">/init</span> 项目初始化</div>
+        <div class="card-name"><span class="slash cmd-clickable" data-cmd="init">/init</span> 项目初始化</div>
         <div class="card-desc">初始化新的 CLAUDE.md 文件，包含代码库文档。让 Claude 了解项目结构、约定和关键信息。</div>
         <div class="card-tags">
           <span class="tag tag-skill">技能</span>
@@ -980,6 +980,17 @@
       <a href="https://github.com/anthropics/skills" style="color:#b45309;">官方技能仓库</a>
     </p>
   </footer>
+
+  <!-- ==================== DETAIL PANEL ==================== -->
+  <div id="detail-overlay" onclick="closeDetail()"></div>
+  <div id="detail-panel">
+    <div class="detail-header">
+      <button class="detail-back-btn" onclick="closeDetail()" title="返回列表">← 返回</button>
+      <span class="detail-cmd-name" id="detail-cmd-name">/command</span>
+      <span class="detail-category" id="detail-category"></span>
+    </div>
+    <div class="detail-body" id="detail-body"></div>
+  </div>
 
 </main>
 
