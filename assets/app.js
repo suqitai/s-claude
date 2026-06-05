@@ -98,7 +98,8 @@
   // ========== 搜索过滤功能 ==========
   function initSearch() {
     var input = document.getElementById('searchInput');
-    if (!input) return;
+    if (!input) { console.warn('[Search] searchInput not found'); return; }
+    console.log('[Search] Initialized, found', document.querySelectorAll('[data-search]').length, 'searchable items');
 
     var filterTags = document.querySelectorAll('.filter-tag');
     var activeFilter = 'all';
@@ -112,6 +113,7 @@
       var query = input.value.toLowerCase().trim();
       var items = getSearchableItems();
       var visibleCount = 0;
+      console.log('[Search] doFilter: query="' + query + '", filter="' + activeFilter + '", total=' + items.length);
 
       items.forEach(function(item) {
         var text = (item.getAttribute('data-search') || '').toLowerCase();
@@ -125,10 +127,14 @@
         if (visible) visibleCount++;
       });
 
-      // 无结果提示
+      // 无结果提示（用 classList 而非 style.display，因为 .hidden 有 !important）
       var noResults = document.getElementById('noResults');
       if (noResults) {
-        noResults.style.display = visibleCount === 0 ? '' : 'none';
+        if (visibleCount === 0) {
+          noResults.classList.remove('hidden');
+        } else {
+          noResults.classList.add('hidden');
+        }
       }
 
       // 隐藏空 section
