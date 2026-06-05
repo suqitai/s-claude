@@ -204,37 +204,37 @@
       <table>
         <thead><tr><th>命令</th><th>功能说明</th><th>别名</th></tr></thead>
         <tbody>
-          <tr data-search="/clear 清空对话历史，释放上下文窗口">
+          <tr data-category="session" data-search="/clear 清空对话历史，释放上下文窗口">
           <td><span class="cmd-clickable" data-cmd="clear">/clear</span></td>
           <td>清空对话历史，释放上下文窗口</td><td>/reset, /new</td></tr>
-          <tr data-search="/compact [focus] 压缩对话历史，保留关键信息；可选 focus 指定保留重点">
+          <tr data-category="session" data-search="/compact [focus] 压缩对话历史，保留关键信息；可选 focus 指定保留重点">
           <td><span class="cmd-clickable" data-cmd="compact">/compact</span> [focus]</td>
           <td>压缩对话历史，保留关键信息；可选 focus 指定保留重点</td><td>—</td></tr>
-          <tr data-search="/resume [name|ID] 恢复之前的会话继续工作">
+          <tr data-category="session" data-search="/resume [name|ID] 恢复之前的会话继续工作">
           <td><span class="cmd-clickable" data-cmd="resume">/resume</span> [name|ID]</td>
           <td>恢复之前的会话继续工作</td><td>/continue</td></tr>
-          <tr data-search="/rename [name] 重命名当前会话，方便后续查找">
+          <tr data-category="session" data-search="/rename [name] 重命名当前会话，方便后续查找">
           <td><span class="cmd-clickable" data-cmd="rename">/rename</span> [name]</td>
           <td>重命名当前会话，方便后续查找</td><td>—</td></tr>
-          <tr data-search="/rewind 回滚对话和代码到上一个检查点">
+          <tr data-category="session" data-search="/rewind 回滚对话和代码到上一个检查点">
           <td><span class="cmd-clickable" data-cmd="rewind">/rewind</span></td>
           <td>回滚对话和代码到上一个检查点</td><td>/checkpoint</td></tr>
-          <tr data-search="/branch [name] 从当前状态创建一个对话分支">
+          <tr data-category="session" data-search="/branch [name] 从当前状态创建一个对话分支">
           <td><span class="cmd-clickable" data-cmd="branch">/branch</span> [name]</td>
           <td>从当前状态创建一个对话分支</td><td>/fork</td></tr>
-          <tr data-search="/diff 打开交互式差异查看器，显示所有待提交更改">
+          <tr data-category="session" data-search="/diff 打开交互式差异查看器，显示所有待提交更改">
           <td><span class="cmd-clickable" data-cmd="diff">/diff</span></td>
           <td>打开交互式差异查看器，显示所有待提交更改</td><td>—</td></tr>
-          <tr data-search="/copy [N] 复制第 N 条最近回复或代码块到剪贴板">
+          <tr data-category="session" data-search="/copy [N] 复制第 N 条最近回复或代码块到剪贴板">
           <td><span class="cmd-clickable" data-cmd="copy">/copy</span> [N]</td>
           <td>复制第 N 条最近回复或代码块到剪贴板</td><td>—</td></tr>
-          <tr data-search="/export [filename] 导出当前对话到文本文件">
+          <tr data-category="session" data-search="/export [filename] 导出当前对话到文本文件">
           <td><span class="cmd-clickable" data-cmd="export">/export</span> [filename]</td>
           <td>导出当前对话到文本文件</td><td>—</td></tr>
-          <tr data-search="/exit 退出 Claude Code">
+          <tr data-category="session" data-search="/exit 退出 Claude Code">
           <td><span class="cmd-clickable" data-cmd="exit">/exit</span></td>
           <td>退出 Claude Code</td><td>/quit</td></tr>
-          <tr data-search="/background 将当前会话移至后台运行">
+          <tr data-category="session" data-search="/background 将当前会话移至后台运行">
           <td><span class="cmd-clickable" data-cmd="background">/background</span></td>
           <td>将当前会话移至后台运行</td><td>—</td></tr>
         </tbody>
@@ -256,37 +256,37 @@
       <table>
         <thead><tr><th>命令</th><th>功能说明</th><th>参数</th></tr></thead>
         <tbody>
-          <tr data-search="/config 打开设置 UI（主题、模型、输出风格等）">
+          <tr data-category="config" data-search="/config 打开设置 UI（主题、模型、输出风格等）">
           <td><span class="cmd-clickable" data-cmd="config">/config</span></td>
           <td>打开设置 UI（主题、模型、输出风格等）</td><td>/settings</td></tr>
-          <tr data-search="/model [name] 切换 AI 模型">
+          <tr data-category="config" data-search="/model [name] 切换 AI 模型">
           <td><span class="cmd-clickable" data-cmd="model">/model</span> [name]</td>
           <td>切换 AI 模型</td><td>sonnet / opus / haiku</td></tr>
-          <tr data-search="/effort [level] 设置推理深度">
+          <tr data-category="config" data-search="/effort [level] 设置推理深度">
           <td><span class="cmd-clickable" data-cmd="effort">/effort</span> [level]</td>
           <td>设置推理深度</td><td>low / medium / high / xhigh / max</td></tr>
-          <tr data-search="/fast [on|off] 切换快速模式（更快输出，同一模型）">
+          <tr data-category="config" data-search="/fast [on|off] 切换快速模式（更快输出，同一模型）">
           <td><span class="cmd-clickable" data-cmd="fast">/fast</span> [on|off]</td>
           <td>切换快速模式（更快输出，同一模型）</td><td>on / off</td></tr>
-          <tr data-search="/permissions 管理工具权限规则（allow / ask / deny）">
+          <tr data-category="config" data-search="/permissions 管理工具权限规则（allow / ask / deny）">
           <td><span class="cmd-clickable" data-cmd="permissions">/permissions</span></td>
           <td>管理工具权限规则（allow / ask / deny）</td><td>/allowed-tools</td></tr>
-          <tr data-search="/theme 更改配色主题">
+          <tr data-category="config" data-search="/theme 更改配色主题">
           <td><span class="cmd-clickable" data-cmd="theme">/theme</span></td>
           <td>更改配色主题</td><td>—</td></tr>
-          <tr data-search="/vim 切换 Vim 键位绑定模式">
+          <tr data-category="config" data-search="/vim 切换 Vim 键位绑定模式">
           <td><span class="cmd-clickable" data-cmd="vim">/vim</span></td>
           <td>切换 Vim 键位绑定模式</td><td>—</td></tr>
-          <tr data-search="/terminal-setup 配置终端 Shell 集成">
+          <tr data-category="config" data-search="/terminal-setup 配置终端 Shell 集成">
           <td><span class="cmd-clickable" data-cmd="terminal-setup">/terminal-setup</span></td>
           <td>配置终端 Shell 集成</td><td>—</td></tr>
-          <tr data-search="/keybindings 自定义键盘快捷键">
+          <tr data-category="config" data-search="/keybindings 自定义键盘快捷键">
           <td><span class="cmd-clickable" data-cmd="keybindings">/keybindings</span></td>
           <td>自定义键盘快捷键</td><td>—</td></tr>
-          <tr data-search="/hooks 查看和管理 Hook 配置">
+          <tr data-category="config" data-search="/hooks 查看和管理 Hook 配置">
           <td><span class="cmd-clickable" data-cmd="hooks">/hooks</span></td>
           <td>查看和管理 Hook 配置</td><td>—</td></tr>
-          <tr data-search="/statusline 自定义状态栏显示内容">
+          <tr data-category="config" data-search="/statusline 自定义状态栏显示内容">
           <td><span class="cmd-clickable" data-cmd="statusline">/statusline</span></td>
           <td>自定义状态栏显示内容</td><td>—</td></tr>
         </tbody>
@@ -332,34 +332,34 @@
       <table>
         <thead><tr><th>命令</th><th>功能说明</th><th>适用场景</th></tr></thead>
         <tbody>
-          <tr data-search="/init 初始化项目 CLAUDE.md 记忆文件">
+          <tr data-category="project" data-search="/init 初始化项目 CLAUDE.md 记忆文件">
           <td><span class="cmd-clickable" data-cmd="init">/init</span></td>
           <td>初始化项目 CLAUDE.md 记忆文件</td><td>新项目接入</td></tr>
-          <tr data-search="/memory 查看/编辑 CLAUDE.md 和自动记忆">
+          <tr data-category="project" data-search="/memory 查看/编辑 CLAUDE.md 和自动记忆">
           <td><span class="cmd-clickable" data-cmd="memory">/memory</span></td>
           <td>查看/编辑 CLAUDE.md 和自动记忆</td><td>更新项目知识</td></tr>
-          <tr data-search="/add-dir &lt;path&gt; 添加额外目录到工作上下文">
+          <tr data-category="project" data-search="/add-dir &lt;path&gt; 添加额外目录到工作上下文">
           <td><span class="cmd-clickable" data-cmd="add-dir">/add-dir</span> &lt;path&gt;</td>
           <td>添加额外目录到工作上下文</td><td>多仓库项目</td></tr>
-          <tr data-search="/todos 查看当前任务列表">
+          <tr data-category="project" data-search="/todos 查看当前任务列表">
           <td><span class="cmd-clickable" data-cmd="todos">/todos</span></td>
           <td>查看当前任务列表</td><td>进度跟踪</td></tr>
-          <tr data-search="/plan [description] 进入计划模式（只读探索，确认后执行）">
+          <tr data-category="project" data-search="/plan [description] 进入计划模式（只读探索，确认后执行）">
           <td><span class="cmd-clickable" data-cmd="plan">/plan</span> [description]</td>
           <td>进入计划模式（只读探索，确认后执行）</td><td>复杂任务设计</td></tr>
-          <tr data-search="/ultraplan &lt;prompt&gt; 深度多步骤任务规划">
+          <tr data-category="project" data-search="/ultraplan &lt;prompt&gt; 深度多步骤任务规划">
           <td><span class="cmd-clickable" data-cmd="ultraplan">/ultraplan</span> &lt;prompt&gt;</td>
           <td>深度多步骤任务规划</td><td>大型架构变更</td></tr>
-          <tr data-search="/ultrareview 高级代码审查">
+          <tr data-category="project" data-search="/ultrareview 高级代码审查">
           <td><span class="cmd-clickable" data-cmd="ultrareview">/ultrareview</span></td>
           <td>高级代码审查</td><td>关键代码审阅</td></tr>
-          <tr data-search="/bug 提交 Bug 报告（含会话日志）">
+          <tr data-category="project" data-search="/bug 提交 Bug 报告（含会话日志）">
           <td><span class="cmd-clickable" data-cmd="bug">/bug</span></td>
           <td>提交 Bug 报告（含会话日志）</td><td>问题反馈</td></tr>
-          <tr data-search="/pr-comments [PR] 获取并处理 GitHub PR 评论">
+          <tr data-category="project" data-search="/pr-comments [PR] 获取并处理 GitHub PR 评论">
           <td><span class="cmd-clickable" data-cmd="pr-comments">/pr-comments</span> [PR]</td>
           <td>获取并处理 GitHub PR 评论</td><td>PR 反馈响应</td></tr>
-          <tr data-search="/autofix-pr [prompt] 持续监控 PR 并自动推送修复">
+          <tr data-category="project" data-search="/autofix-pr [prompt] 持续监控 PR 并自动推送修复">
           <td><span class="cmd-clickable" data-cmd="autofix-pr">/autofix-pr</span> [prompt]</td>
           <td>持续监控 PR 并自动推送修复</td><td>自动化 PR 维护</td></tr>
         </tbody>
@@ -393,40 +393,40 @@
       <table>
         <thead><tr><th>命令</th><th>功能说明</th></tr></thead>
         <tbody>
-          <tr data-search="/help 显示所有可用命令列表">
+          <tr data-category="debug" data-search="/help 显示所有可用命令列表">
           <td><span class="cmd-clickable" data-cmd="help">/help</span></td>
           <td>显示所有可用命令列表</td></tr>
-          <tr data-search="/status 查看版本、当前模型、账户信息">
+          <tr data-category="debug" data-search="/status 查看版本、当前模型、账户信息">
           <td><span class="cmd-clickable" data-cmd="status">/status</span></td>
           <td>查看版本、当前模型、账户信息</td></tr>
-          <tr data-search="/cost 查看当前会话 Token 消耗与费用">
+          <tr data-category="debug" data-search="/cost 查看当前会话 Token 消耗与费用">
           <td><span class="cmd-clickable" data-cmd="cost">/cost</span></td>
           <td>查看当前会话 Token 消耗与费用</td></tr>
-          <tr data-search="/context 可视化上下文窗口使用情况">
+          <tr data-category="debug" data-search="/context 可视化上下文窗口使用情况">
           <td><span class="cmd-clickable" data-cmd="context">/context</span></td>
           <td>可视化上下文窗口使用情况</td></tr>
-          <tr data-search="/usage 显示套餐用量与速率限制">
+          <tr data-category="debug" data-search="/usage 显示套餐用量与速率限制">
           <td><span class="cmd-clickable" data-cmd="usage">/usage</span></td>
           <td>显示套餐用量与速率限制</td></tr>
-          <tr data-search="/insights 生成用量分析报告">
+          <tr data-category="debug" data-search="/insights 生成用量分析报告">
           <td><span class="cmd-clickable" data-cmd="insights">/insights</span></td>
           <td>生成用量分析报告</td></tr>
-          <tr data-search="/stats 可视化每日用量、会话历史">
+          <tr data-category="debug" data-search="/stats 可视化每日用量、会话历史">
           <td><span class="cmd-clickable" data-cmd="stats">/stats</span></td>
           <td>可视化每日用量、会话历史</td></tr>
-          <tr data-search="/doctor 诊断安装、配置、MCP 问题">
+          <tr data-category="debug" data-search="/doctor 诊断安装、配置、MCP 问题">
           <td><span class="cmd-clickable" data-cmd="doctor">/doctor</span></td>
           <td>诊断安装、配置、MCP 问题</td></tr>
-          <tr data-search="/version 显示当前 Claude Code 版本号">
+          <tr data-category="debug" data-search="/version 显示当前 Claude Code 版本号">
           <td><span class="cmd-clickable" data-cmd="version">/version</span></td>
           <td>显示当前 Claude Code 版本号</td></tr>
-          <tr data-search="/release-notes 查看版本更新日志">
+          <tr data-category="debug" data-search="/release-notes 查看版本更新日志">
           <td><span class="cmd-clickable" data-cmd="release-notes">/release-notes</span></td>
           <td>查看版本更新日志</td></tr>
-          <tr data-search="/login 登录 Anthropic 账户">
+          <tr data-category="debug" data-search="/login 登录 Anthropic 账户">
           <td><span class="cmd-clickable" data-cmd="login">/login</span></td>
           <td>登录 Anthropic 账户</td></tr>
-          <tr data-search="/logout 登出 Anthropic 账户">
+          <tr data-category="debug" data-search="/logout 登出 Anthropic 账户">
           <td><span class="cmd-clickable" data-cmd="logout">/logout</span></td>
           <td>登出 Anthropic 账户</td></tr>
         </tbody>
@@ -448,31 +448,31 @@
       <table>
         <thead><tr><th>命令</th><th>功能说明</th></tr></thead>
         <tbody>
-          <tr data-search="/mcp 管理 MCP 服务器连接与 OAuth 认证">
+          <tr data-category="ext" data-search="/mcp 管理 MCP 服务器连接与 OAuth 认证">
           <td><span class="cmd-clickable" data-cmd="mcp">/mcp</span></td>
           <td>管理 MCP 服务器连接与 OAuth 认证</td></tr>
-          <tr data-search="/plugin install &lt;name&gt; 安装插件">
+          <tr data-category="ext" data-search="/plugin install &lt;name&gt; 安装插件">
           <td><span class="cmd-clickable" data-cmd="plugin">/plugin</span> install &lt;name&gt;</td>
           <td>安装插件</td></tr>
-          <tr data-search="/plugin enable/disable &lt;name&gt; 启用/禁用插件">
+          <tr data-category="ext" data-search="/plugin enable/disable &lt;name&gt; 启用/禁用插件">
           <td><span class="cmd-clickable" data-cmd="plugin">/plugin</span> enable/disable &lt;name&gt;</td>
           <td>启用/禁用插件</td></tr>
-          <tr data-search="/plugin list 列出已安装插件">
+          <tr data-category="ext" data-search="/plugin list 列出已安装插件">
           <td><span class="cmd-clickable" data-cmd="plugin">/plugin</span> list</td>
           <td>列出已安装插件</td></tr>
-          <tr data-search="/plugin marketplace 浏览插件市场">
+          <tr data-category="ext" data-search="/plugin marketplace 浏览插件市场">
           <td><span class="cmd-clickable" data-cmd="plugin">/plugin</span> marketplace</td>
           <td>浏览插件市场</td></tr>
-          <tr data-search="/plugin validate 验证插件结构是否正确">
+          <tr data-category="ext" data-search="/plugin validate 验证插件结构是否正确">
           <td><span class="cmd-clickable" data-cmd="plugin">/plugin</span> validate</td>
           <td>验证插件结构是否正确</td></tr>
-          <tr data-search="/agents 管理自定义 Agent">
+          <tr data-category="ext" data-search="/agents 管理自定义 Agent">
           <td><span class="cmd-clickable" data-cmd="agents">/agents</span></td>
           <td>管理自定义 Agent</td></tr>
-          <tr data-search="/skills 列出所有可用技能（内置 + 自定义）">
+          <tr data-category="ext" data-search="/skills 列出所有可用技能（内置 + 自定义）">
           <td><span class="cmd-clickable" data-cmd="skills">/skills</span></td>
           <td>列出所有可用技能（内置 + 自定义）</td></tr>
-          <tr data-search="/reload-skills 重新扫描技能目录，无需重启会话">
+          <tr data-category="ext" data-search="/reload-skills 重新扫描技能目录，无需重启会话">
           <td><span class="cmd-clickable" data-cmd="reload-skills">/reload-skills</span></td>
           <td>重新扫描技能目录，无需重启会话</td></tr>
         </tbody>
@@ -506,43 +506,43 @@
       <table>
         <thead><tr><th>命令</th><th>功能说明</th><th>特点</th></tr></thead>
         <tbody>
-          <tr data-search="/agent &lt;prompt&gt; 创建子代理执行独立任务，可并行运行">
+          <tr data-category="auto" data-search="/agent &lt;prompt&gt; 创建子代理执行独立任务，可并行运行">
           <td><span class="cmd-clickable" data-cmd="agent">/agent</span> &lt;prompt&gt;</td>
           <td>创建子代理执行独立任务，可并行运行</td><td>🔀 并行</td></tr>
-          <tr data-search="/loop &lt;interval&gt; &lt;prompt&gt; 按间隔重复运行命令（本地）">
+          <tr data-category="auto" data-search="/loop &lt;interval&gt; &lt;prompt&gt; 按间隔重复运行命令（本地）">
           <td><span class="cmd-clickable" data-cmd="loop">/loop</span> &lt;interval&gt; &lt;prompt&gt;</td>
           <td>按间隔重复运行命令（本地）</td><td>⏱ 最长 3 天</td></tr>
-          <tr data-search="/schedule [description] 创建云端定时任务（关机也运行）">
+          <tr data-category="auto" data-search="/schedule [description] 创建云端定时任务（关机也运行）">
           <td><span class="cmd-clickable" data-cmd="schedule">/schedule</span> [description]</td>
           <td>创建云端定时任务（关机也运行）</td><td>☁️ 持久化</td></tr>
-          <tr data-search="/tasks 查看所有后台任务状态">
+          <tr data-category="auto" data-search="/tasks 查看所有后台任务状态">
           <td><span class="cmd-clickable" data-cmd="tasks">/tasks</span></td>
           <td>查看所有后台任务状态</td><td>📋 监控</td></tr>
-          <tr data-search="/btw &lt;question&gt; 弹出临时只读代理快速提问">
+          <tr data-category="auto" data-search="/btw &lt;question&gt; 弹出临时只读代理快速提问">
           <td><span class="cmd-clickable" data-cmd="btw">/btw</span> &lt;question&gt;</td>
           <td>弹出临时只读代理快速提问</td><td>💬 不污染历史</td></tr>
-          <tr data-search="/remote-control 允许从 claude.ai 远程控制此会话">
+          <tr data-category="auto" data-search="/remote-control 允许从 claude.ai 远程控制此会话">
           <td><span class="cmd-clickable" data-cmd="remote-control">/remote-control</span></td>
           <td>允许从 claude.ai 远程控制此会话</td><td>🌐 远程</td></tr>
-          <tr data-search="/teleport 将 Web/iOS 会话拉到终端">
+          <tr data-category="auto" data-search="/teleport 将 Web/iOS 会话拉到终端">
           <td><span class="cmd-clickable" data-cmd="teleport">/teleport</span></td>
           <td>将 Web/iOS 会话拉到终端</td><td>📲 跨设备</td></tr>
-          <tr data-search="/desktop 将会话转移到 Claude Code 桌面应用">
+          <tr data-category="auto" data-search="/desktop 将会话转移到 Claude Code 桌面应用">
           <td><span class="cmd-clickable" data-cmd="desktop">/desktop</span></td>
           <td>将会话转移到 Claude Code 桌面应用</td><td>🖥 桌面</td></tr>
-          <tr data-search="/voice 启用语音输入（长按空格键说话）">
+          <tr data-category="auto" data-search="/voice 启用语音输入（长按空格键说话）">
           <td><span class="cmd-clickable" data-cmd="voice">/voice</span></td>
           <td>启用语音输入（长按空格键说话）</td><td>🎤 语音</td></tr>
-          <tr data-search="/chrome 启用 Chrome 浏览器集成，进行网页自动化">
+          <tr data-category="auto" data-search="/chrome 启用 Chrome 浏览器集成，进行网页自动化">
           <td><span class="cmd-clickable" data-cmd="chrome">/chrome</span></td>
           <td>启用 Chrome 浏览器集成，进行网页自动化</td><td>🌐 Web</td></tr>
-          <tr data-search="/ide 自动连接到正在运行的 IDE">
+          <tr data-category="auto" data-search="/ide 自动连接到正在运行的 IDE">
           <td><span class="cmd-clickable" data-cmd="ide">/ide</span></td>
           <td>自动连接到正在运行的 IDE</td><td>🔗 IDE</td></tr>
-          <tr data-search="/setup-bedrock 配置 Amazon Bedrock 部署">
+          <tr data-category="auto" data-search="/setup-bedrock 配置 Amazon Bedrock 部署">
           <td><span class="cmd-clickable" data-cmd="setup-bedrock">/setup-bedrock</span></td>
           <td>配置 Amazon Bedrock 部署</td><td>☁️ AWS</td></tr>
-          <tr data-search="/setup-vertex 配置 Google Vertex AI 部署">
+          <tr data-category="auto" data-search="/setup-vertex 配置 Google Vertex AI 部署">
           <td><span class="cmd-clickable" data-cmd="setup-vertex">/setup-vertex</span></td>
           <td>配置 Google Vertex AI 部署</td><td>☁️ GCP</td></tr>
         </tbody>
@@ -581,7 +581,7 @@
 
     <div class="cards">
       <!-- batch -->
-      <div class="card" data-search="/batch 批量迁移 大规模并行迁移工具。将工作拆分为 5-30 个隔离的 worktree 代理，并发执行。适合框架迁移（如 Solid → React）、大规模重构。">
+      <div class="card" data-category="skill" data-search="/batch 批量迁移 大规模并行迁移工具。将工作拆分为 5-30 个隔离的 worktree 代理，并发执行。适合框架迁移（如 Solid → React）、大规模重构。">
         <div class="card-icon">🚀</div>
         <div class="card-name"><span class="slash cmd-clickable" data-cmd="batch">/batch</span> 批量迁移</div>
         <div class="card-desc">大规模并行迁移工具。将工作拆分为 5-30 个隔离的 worktree 代理，并发执行。适合框架迁移（如 Solid → React）、大规模重构。</div>
@@ -741,29 +741,29 @@
       <table>
         <thead><tr><th>技能</th><th>关注点</th><th>深度级别</th><th>自动修复</th><th>PR 评论</th></tr></thead>
         <tbody>
-          <tr data-search="/code-review 🐛 正确性 Bug · 逻辑错误 · 安全问题">
-          <td>/code-review</td>
+          <tr data-category="skill" data-search="/code-review 🐛 正确性 Bug · 逻辑错误 · 安全问题">
+          <td><span class="cmd-clickable" data-cmd="code-review">/code-review</span></td>
           <td>🐛 正确性 Bug · 逻辑错误 · 安全问题</td>
             <td>low / medium / high / max</td>
             <td>✅ --fix</td>
             <td>✅ --comment</td>
           </tr>
-          <tr data-search="/simplify ♻️ 复用 · 简化 · 效率 · 规范合规">
-          <td>/simplify</td>
+          <tr data-category="skill" data-search="/simplify ♻️ 复用 · 简化 · 效率 · 规范合规">
+          <td><span class="cmd-clickable" data-cmd="simplify">/simplify</span></td>
           <td>♻️ 复用 · 简化 · 效率 · 规范合规</td>
             <td>—（自动判断）</td>
             <td>✅ 默认应用</td>
             <td>❌</td>
           </tr>
-          <tr data-search="/review 📝 PR 综合审查">
-          <td>/review</td>
+          <tr data-category="skill" data-search="/review 📝 PR 综合审查">
+          <td><span class="cmd-clickable" data-cmd="review">/review</span></td>
           <td>📝 PR 综合审查</td>
             <td>—（综合评估）</td>
             <td>❌</td>
             <td>✅ 原生支持</td>
           </tr>
-          <tr data-search="/security-review 🔐 OWASP · 密钥泄露 · 注入 · 权限">
-          <td>/security-review</td>
+          <tr data-category="skill" data-search="/security-review 🔐 OWASP · 密钥泄露 · 注入 · 权限">
+          <td><span class="cmd-clickable" data-cmd="security-review">/security-review</span></td>
           <td>🔐 OWASP · 密钥泄露 · 注入 · 权限</td>
             <td>—（安全专项）</td>
             <td>❌</td>
